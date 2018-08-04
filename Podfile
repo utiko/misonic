@@ -10,6 +10,7 @@ target 'Misonic' do
     pod 'Alamofire'
     pod 'AlamofireImage'
     pod 'RealmSwift'
+    pod 'SwiftLint'
 
     post_install do |installer|
         installer.pods_project.targets.each do |target|

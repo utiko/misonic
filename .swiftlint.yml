@@ -1,0 +1,27 @@
+excluded:
+  - Carthage
+  - Pods
+  - Entity/Carthage
+  
+opt_in_rules:
+  - overridden_super_call
+
+disabled_rules:
+  - trailing_whitespace
+  - large_tuple
+  - todo
+  - notification_center_detachment
+  
+line_length:
+  warning: 200
+  error: 500
+
+nesting: 
+  type_level: 4
+
+type_name:
+  min_length: 2
+
+identifier_name:
+  min_length: 1
+  max_length: 100

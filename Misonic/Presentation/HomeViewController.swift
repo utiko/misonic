@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import RealmSwift
 
 class HomeViewController: UIViewController {
 
     lazy private var searchController: UISearchController = {
-        let searchController = UISearchController(searchResultsController:  nil)
+        let searchController = UISearchController(searchResultsController: nil)
         
         searchController.searchResultsUpdater = self
         searchController.delegate = self
@@ -25,10 +26,23 @@ class HomeViewController: UIViewController {
     @IBOutlet var shareButton: UIBarButtonItem!
     @IBOutlet var searchButton: UIBarButtonItem!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+        let searchArtists = ArtistSearchRequest { (response) in
+            switch response {
+            case .success(let result):
+                print(result)
+            case .successWithError(let serverError):
+                print(serverError.message)
+            case .error(let error):
+                print(error ?? "Unknown error")
+            }
+        }
+        searchArtists.searchQuery = "Emi"
+        searchArtists.perform()
         
         //definesPresentationContext = true
     }
@@ -57,4 +71,3 @@ extension HomeViewController: UISearchResultsUpdating, UISearchControllerDelegat
         })
     }
 }
-

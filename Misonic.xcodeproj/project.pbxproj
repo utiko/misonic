@@ -13,6 +13,10 @@
 		3DF60B552112C46700BD21CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF60B542112C46700BD21CB /* Assets.xcassets */; };
 		3DF60B582112C46700BD21CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF60B562112C46700BD21CB /* LaunchScreen.storyboard */; };
 		3DFE4AD62112D3CC00B9D2F2 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE4AD52112D3CC00B9D2F2 /* NavigationController.swift */; };
+		3DFE4ADB2115A00E00B9D2F2 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE4ADA2115A00E00B9D2F2 /* APIService.swift */; };
+		3DFE4ADE2115A0CA00B9D2F2 /* NetworkingConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE4ADD2115A0CA00B9D2F2 /* NetworkingConfiguration.swift */; };
+		3DFE4AE12115A9DF00B9D2F2 /* BaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE4AE02115A9DF00B9D2F2 /* BaseRequest.swift */; };
+		3DFE4AE42115B27D00B9D2F2 /* ArtistSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE4AE32115B27D00B9D2F2 /* ArtistSearchRequest.swift */; };
 		9CC396AA486AF47ECC98548D /* Pods_Misonic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2F880CDEDB0940CB8CDB81 /* Pods_Misonic.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +29,10 @@
 		3DF60B572112C46700BD21CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DF60B592112C46700BD21CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DFE4AD52112D3CC00B9D2F2 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		3DFE4ADA2115A00E00B9D2F2 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		3DFE4ADD2115A0CA00B9D2F2 /* NetworkingConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingConfiguration.swift; sourceTree = "<group>"; };
+		3DFE4AE02115A9DF00B9D2F2 /* BaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRequest.swift; sourceTree = "<group>"; };
+		3DFE4AE32115B27D00B9D2F2 /* ArtistSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistSearchRequest.swift; sourceTree = "<group>"; };
 		4C2F880CDEDB0940CB8CDB81 /* Pods_Misonic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Misonic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EA53ABA1BA6F22BC3111840 /* Pods-Misonic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Misonic.release.xcconfig"; path = "Pods/Target Support Files/Pods-Misonic/Pods-Misonic.release.xcconfig"; sourceTree = "<group>"; };
 		C05CBFD6BB16C6B929ECDD3A /* Pods-Misonic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Misonic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Misonic/Pods-Misonic.debug.xcconfig"; sourceTree = "<group>"; };
@@ -72,6 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				3DF60B4A2112C46600BD21CB /* AppDelegate.swift */,
+				3DFE4ADC2115A0B800B9D2F2 /* Configuration */,
+				3DFE4AD821159D1900B9D2F2 /* Service */,
 				3DFE4AD72112D42800B9D2F2 /* Presentation */,
 				3DF60B4E2112C46600BD21CB /* Main.storyboard */,
 				3DF60B542112C46700BD21CB /* Assets.xcassets */,
@@ -88,6 +98,40 @@
 				3DF60B4C2112C46600BD21CB /* HomeViewController.swift */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		3DFE4AD821159D1900B9D2F2 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3DFE4AD921159D2800B9D2F2 /* Networking */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		3DFE4AD921159D2800B9D2F2 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				3DFE4ADA2115A00E00B9D2F2 /* APIService.swift */,
+				3DFE4AE22115B24F00B9D2F2 /* Requests */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		3DFE4ADC2115A0B800B9D2F2 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				3DFE4ADD2115A0CA00B9D2F2 /* NetworkingConfiguration.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		3DFE4AE22115B24F00B9D2F2 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				3DFE4AE02115A9DF00B9D2F2 /* BaseRequest.swift */,
+				3DFE4AE32115B27D00B9D2F2 /* ArtistSearchRequest.swift */,
+			);
+			path = Requests;
 			sourceTree = "<group>";
 		};
 		BDF2A168D01328CAB4A16851 /* Pods */ = {
@@ -112,6 +156,7 @@
 				3DF60B452112C46600BD21CB /* Resources */,
 				1F17791CE8FF3596CC5E21B2 /* [CP] Embed Pods Frameworks */,
 				EE326828E9E1A485C779172A /* [CP] Copy Pods Resources */,
+				3DFE4ADF2115A32600B9D2F2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -211,6 +256,19 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3DFE4ADF2115A32600B9D2F2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+		};
 		EE326828E9E1A485C779172A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -233,8 +291,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DFE4AE12115A9DF00B9D2F2 /* BaseRequest.swift in Sources */,
+				3DFE4ADE2115A0CA00B9D2F2 /* NetworkingConfiguration.swift in Sources */,
 				3DF60B4D2112C46600BD21CB /* HomeViewController.swift in Sources */,
 				3DFE4AD62112D3CC00B9D2F2 /* NavigationController.swift in Sources */,
+				3DFE4AE42115B27D00B9D2F2 /* ArtistSearchRequest.swift in Sources */,
+				3DFE4ADB2115A00E00B9D2F2 /* APIService.swift in Sources */,
 				3DF60B4B2112C46600BD21CB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
