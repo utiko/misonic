@@ -11,29 +11,19 @@ import RealmSwift
 
 class HomeViewController: UIViewController {
 
-    lazy private var searchController: UISearchController = {
-        let searchController = UISearchController(searchResultsController: nil)
-        
-        searchController.searchResultsUpdater = self
-        searchController.delegate = self
-        searchController.searchBar.delegate = self
-        
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.dimsBackgroundDuringPresentation = true
-        return searchController
-    }()
-    
-    @IBOutlet var shareButton: UIBarButtonItem!
     @IBOutlet var searchButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        let searchArtists = ArtistSearchRequest { (response) in
+        /*let searchArtists = ArtistSearchRequest { (response) in
             switch response {
             case .success(let result):
+                if let firs = result.results.artistmatches.artists.first {
+                    DatabaseProvider.addArtist(artist: firs, completion: { (_) in
+                        
+                    })
+                }
                 print(result)
             case .successWithError(let serverError):
                 print(serverError.message)
@@ -41,33 +31,10 @@ class HomeViewController: UIViewController {
                 print(error ?? "Unknown error")
             }
         }
-        searchArtists.searchQuery = "Emi"
-        searchArtists.perform()
+        searchArtists.searchQuery = "Dakh"
+        searchArtists.perform()*/
         
         //definesPresentationContext = true
     }
     
-    @IBAction func searchButtonTap(_ sender: Any) {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.navigationItem.leftBarButtonItems = []
-            self.navigationItem.rightBarButtonItems = []
-            self.navigationItem.titleView = self.searchController.searchBar
-            self.searchController.searchBar.becomeFirstResponder()
-        })
-    }
-    
-}
-
-extension HomeViewController: UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate {
-    func updateSearchResults(for searchController: UISearchController) {
-        
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.navigationItem.leftBarButtonItems = [self.shareButton]
-            self.navigationItem.rightBarButtonItems = [self.searchButton]
-            self.navigationItem.titleView = nil
-        })
-    }
 }

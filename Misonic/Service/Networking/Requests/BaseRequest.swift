@@ -98,9 +98,9 @@ class BaseRequest<T: Decodable, E: Decodable>: NSObject, BaseRequestProtocol {
     
     func parameters() -> [String: Any] {
         return [
-            "method": apiMethod(),
-            "api_key": NetworkingConfiguration.shared.apiKey,
-            "format": "json"
+            APIService.Constants.HeaderFields.apiMethod: apiMethod(),
+            APIService.Constants.HeaderFields.apiKey: NetworkingConfiguration.shared.apiKey,
+            APIService.Constants.HeaderFields.format: "json"
         ]
     }
     

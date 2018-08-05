@@ -17,6 +17,13 @@
 		3DFE4ADE2115A0CA00B9D2F2 /* NetworkingConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE4ADD2115A0CA00B9D2F2 /* NetworkingConfiguration.swift */; };
 		3DFE4AE12115A9DF00B9D2F2 /* BaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE4AE02115A9DF00B9D2F2 /* BaseRequest.swift */; };
 		3DFE4AE42115B27D00B9D2F2 /* ArtistSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE4AE32115B27D00B9D2F2 /* ArtistSearchRequest.swift */; };
+		3DFE4AE72115CD0C00B9D2F2 /* DatabaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE4AE62115CD0C00B9D2F2 /* DatabaseProvider.swift */; };
+		3DFE4AEA2115CE5100B9D2F2 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE4AE92115CE5100B9D2F2 /* Artist.swift */; };
+		3DFE4AEC2115CE5900B9D2F2 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE4AEB2115CE5900B9D2F2 /* Image.swift */; };
+		3DFE4AEE2116386800B9D2F2 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE4AED2116386800B9D2F2 /* Album.swift */; };
+		3DFE4AF221163E5C00B9D2F2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE4AF121163E5C00B9D2F2 /* SearchViewController.swift */; };
+		3DFE4AF5211656F200B9D2F2 /* SearchResultArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE4AF4211656F200B9D2F2 /* SearchResultArtistCell.swift */; };
+		3DFE4AF7211659C800B9D2F2 /* SearchDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE4AF6211659C800B9D2F2 /* SearchDataModel.swift */; };
 		9CC396AA486AF47ECC98548D /* Pods_Misonic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2F880CDEDB0940CB8CDB81 /* Pods_Misonic.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +40,13 @@
 		3DFE4ADD2115A0CA00B9D2F2 /* NetworkingConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingConfiguration.swift; sourceTree = "<group>"; };
 		3DFE4AE02115A9DF00B9D2F2 /* BaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRequest.swift; sourceTree = "<group>"; };
 		3DFE4AE32115B27D00B9D2F2 /* ArtistSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistSearchRequest.swift; sourceTree = "<group>"; };
+		3DFE4AE62115CD0C00B9D2F2 /* DatabaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProvider.swift; sourceTree = "<group>"; };
+		3DFE4AE92115CE5100B9D2F2 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		3DFE4AEB2115CE5900B9D2F2 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		3DFE4AED2116386800B9D2F2 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		3DFE4AF121163E5C00B9D2F2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		3DFE4AF4211656F200B9D2F2 /* SearchResultArtistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultArtistCell.swift; sourceTree = "<group>"; };
+		3DFE4AF6211659C800B9D2F2 /* SearchDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataModel.swift; sourceTree = "<group>"; };
 		4C2F880CDEDB0940CB8CDB81 /* Pods_Misonic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Misonic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EA53ABA1BA6F22BC3111840 /* Pods-Misonic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Misonic.release.xcconfig"; path = "Pods/Target Support Files/Pods-Misonic/Pods-Misonic.release.xcconfig"; sourceTree = "<group>"; };
 		C05CBFD6BB16C6B929ECDD3A /* Pods-Misonic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Misonic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Misonic/Pods-Misonic.debug.xcconfig"; sourceTree = "<group>"; };
@@ -82,6 +96,7 @@
 				3DF60B4A2112C46600BD21CB /* AppDelegate.swift */,
 				3DFE4ADC2115A0B800B9D2F2 /* Configuration */,
 				3DFE4AD821159D1900B9D2F2 /* Service */,
+				3DFE4AE82115CE1800B9D2F2 /* Models */,
 				3DFE4AD72112D42800B9D2F2 /* Presentation */,
 				3DF60B4E2112C46600BD21CB /* Main.storyboard */,
 				3DF60B542112C46700BD21CB /* Assets.xcassets */,
@@ -96,6 +111,7 @@
 			children = (
 				3DFE4AD52112D3CC00B9D2F2 /* NavigationController.swift */,
 				3DF60B4C2112C46600BD21CB /* HomeViewController.swift */,
+				3DFE4AF3211656BD00B9D2F2 /* Search */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -103,6 +119,7 @@
 		3DFE4AD821159D1900B9D2F2 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				3DFE4AE52115CCB800B9D2F2 /* Database */,
 				3DFE4AD921159D2800B9D2F2 /* Networking */,
 			);
 			path = Service;
@@ -132,6 +149,34 @@
 				3DFE4AE32115B27D00B9D2F2 /* ArtistSearchRequest.swift */,
 			);
 			path = Requests;
+			sourceTree = "<group>";
+		};
+		3DFE4AE52115CCB800B9D2F2 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				3DFE4AE62115CD0C00B9D2F2 /* DatabaseProvider.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		3DFE4AE82115CE1800B9D2F2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3DFE4AE92115CE5100B9D2F2 /* Artist.swift */,
+				3DFE4AED2116386800B9D2F2 /* Album.swift */,
+				3DFE4AEB2115CE5900B9D2F2 /* Image.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3DFE4AF3211656BD00B9D2F2 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				3DFE4AF121163E5C00B9D2F2 /* SearchViewController.swift */,
+				3DFE4AF6211659C800B9D2F2 /* SearchDataModel.swift */,
+				3DFE4AF4211656F200B9D2F2 /* SearchResultArtistCell.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		BDF2A168D01328CAB4A16851 /* Pods */ = {
@@ -292,12 +337,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DFE4AE12115A9DF00B9D2F2 /* BaseRequest.swift in Sources */,
+				3DFE4AE72115CD0C00B9D2F2 /* DatabaseProvider.swift in Sources */,
 				3DFE4ADE2115A0CA00B9D2F2 /* NetworkingConfiguration.swift in Sources */,
+				3DFE4AEA2115CE5100B9D2F2 /* Artist.swift in Sources */,
 				3DF60B4D2112C46600BD21CB /* HomeViewController.swift in Sources */,
 				3DFE4AD62112D3CC00B9D2F2 /* NavigationController.swift in Sources */,
+				3DFE4AF221163E5C00B9D2F2 /* SearchViewController.swift in Sources */,
 				3DFE4AE42115B27D00B9D2F2 /* ArtistSearchRequest.swift in Sources */,
 				3DFE4ADB2115A00E00B9D2F2 /* APIService.swift in Sources */,
+				3DFE4AEE2116386800B9D2F2 /* Album.swift in Sources */,
 				3DF60B4B2112C46600BD21CB /* AppDelegate.swift in Sources */,
+				3DFE4AF5211656F200B9D2F2 /* SearchResultArtistCell.swift in Sources */,
+				3DFE4AEC2115CE5900B9D2F2 /* Image.swift in Sources */,
+				3DFE4AF7211659C800B9D2F2 /* SearchDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

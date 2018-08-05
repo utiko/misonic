@@ -12,6 +12,8 @@ import Alamofire
 class APIService {
     static let service = APIService()
     
+    struct Constants {}
+    
     let versionAPI = "2.0"
     
     public func performRequest(_ requestItem: BaseRequestProtocol) {
@@ -39,5 +41,13 @@ class APIService {
                 requestItem.requestCompleted(error)
             }
         }
+    }
+}
+
+extension APIService.Constants {
+    struct HeaderFields {
+        static let apiMethod = "method"
+        static let apiKey = "api_key"
+        static let format = "format"
     }
 }
