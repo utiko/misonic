@@ -1,5 +1,5 @@
 //
-//  SearchDataModel.swift
+//  SearchScreenDataModel.swift
 //  Misonic
 //
 //  Created by Kostia Kolesnyk on 8/5/18.
@@ -8,28 +8,30 @@
 
 import Foundation
 
-protocol SearchDataModelDelegate: class {
+protocol SearchScreenDataModelDelegate: class {
     func searchResultUpdated()
     func searchFailure(with errorMessage: String?)
 }
 
-class SearchDataModel {
+class SearchScreenDataModel {
     
     private var results: [Artist] = []
     
-    public weak var delegate: SearchDataModelDelegate?
+    public weak var delegate: SearchScreenDataModelDelegate?
     
     public func search(with query: String) {
-        let searchArtists = ArtistSearchRequest { [weak self] (response) in
-            switch response {
-            case .success(let result):
-                self?.results = result.results.artistmatches.artists
+        let searchArtists = ArtistSearchRequest { [weak self] (result) in
+            switch result {
+            case .success(let response):
+                self?.results = response.results.artistmatches.artists
                 self?.delegate?.searchResultUpdated()
 
-            case .successWithError(let serverError):
+            case .errorResponse(let serverError):
+                // Handle server error
                 self?.delegate?.searchFailure(with: serverError.message)
 
             case .error(let error):
+                // Handle behavior error
                 self?.delegate?.searchFailure(with: error?.localizedDescription)
             }
         }

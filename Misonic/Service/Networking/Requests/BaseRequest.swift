@@ -21,19 +21,18 @@ protocol BaseRequestProtocol {
     func successCodes() -> [Int]
     
     func requestCompleted(_ data: Data)
-    func requestCompletedWithServerError(_ errorData: Data)
+    func requestCompletedWithErrorResponse(_ errorData: Data)
     func requestCompleted(_ error: Error)
 }
 
-enum ResponseType<T, E> {
+enum ResponseType<T> {
     case success(T)
-    case successWithError(E)
+    case errorResponse(ErrorResponse)
     case error(Error?)
 }
 
-class BaseRequest<T: Decodable, E: Decodable>: NSObject, BaseRequestProtocol {
+class BaseRequest<T: Decodable>: NSObject, BaseRequestProtocol {
     typealias ResultType = T
-    typealias ErrorType = E
 
     func requestCompleted(_ data: Data) {
         do {
@@ -44,10 +43,10 @@ class BaseRequest<T: Decodable, E: Decodable>: NSObject, BaseRequestProtocol {
         }
     }
     
-    func requestCompletedWithServerError(_ errorData: Data) {
+    func requestCompletedWithErrorResponse(_ errorData: Data) {
         do {
-            let error = try JSONDecoder().decode(ErrorType.self, from: errorData)
-            completion(ResponseType.successWithError(error))
+            let error = try JSONDecoder().decode(ErrorResponse.self, from: errorData)
+            completion(ResponseType.errorResponse(error))
         } catch {
             completion(ResponseType.error(error))
         }
@@ -74,9 +73,9 @@ class BaseRequest<T: Decodable, E: Decodable>: NSObject, BaseRequestProtocol {
         return headers
     }
     
-    var completion: (ResponseType<T, E>) -> Void
+    var completion: (ResponseType<T>) -> Void
     
-    init(completionClosure: @escaping (_ response: ResponseType<T, E>) -> Void) {
+    init(completionClosure: @escaping (_ response: ResponseType<T>) -> Void) {
         completion = completionClosure
     }
     

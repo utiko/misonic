@@ -10,16 +10,14 @@ import Foundation
 import RealmSwift
 
 class DatabaseProvider {
-    //static let shared = DatabaseProvider()
     
-    // Thread safe realm
-    static var realm: Realm {
+    static var realm: Realm = {
         do {
             return try Realm()
         } catch {
             fatalError("Realm not creted")
         }
-    }
+    }()
     
     private static let realmQueue = DispatchQueue(label: "net.utiko.misonic.RealmQueue")
     private static let mainQueue = DispatchQueue.main
@@ -38,7 +36,7 @@ class DatabaseProvider {
         realmQueue.async {
             do {
                 // Skip if exists
-                guard realm.object(ofType: ArtistManaged.self, forPrimaryKey: artist.id) == nil else {
+                guard realm.object(ofType: ArtistManaged.self, forPrimaryKey: artist.artistID) == nil else {
                     throw NSError(domain: "", code: 12, userInfo: nil)
                 }
                 

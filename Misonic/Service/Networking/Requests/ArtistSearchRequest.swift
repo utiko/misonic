@@ -10,12 +10,7 @@ import Foundation
 import Realm
 import RealmSwift
 
-struct ServerError: Decodable {
-    var error: Int = 0
-    var message = ""
-}
-
-class ArtistSearchRequest: BaseRequest <ArtistSearchResponse, ServerError> {
+class ArtistSearchRequest: BaseRequest <ArtistSearchResponse> {
     
     var searchQuery: String = ""
     

@@ -10,15 +10,28 @@ import Foundation
 import RealmSwift
 import Realm
 
-struct Artist: Decodable {
+protocol ManagedConvertable {
+    associatedtype ManagedType: Object
     
-    var id = ""
-    var name = ""
-    var listeners = 0
-    var images = ImageList()
+    init(with managed: ManagedType)
+    func getManaged() -> ManagedType
+}
+
+protocol ArrayConvertable {
+    associatedtype ManagedType: Object
+    
+    func getManagedList() -> List<ManagedType>
+}
+
+struct Artist: Decodable, ManagedConvertable {
+    
+    var artistID: String
+    var name: String
+    var listeners: Int
+    var images: ImageList
     
     private enum CodingKeys: String, CodingKey {
-        case id = "mbid"
+        case artistID = "mbid"
         case name
         case listeners
         case images = "image"
@@ -26,18 +39,20 @@ struct Artist: Decodable {
     
     init(from decoder: Decoder) throws {
         let map = try decoder.container(keyedBy: CodingKeys.self)
-        id = try map.decode(String.self, forKey: .id)
+        artistID = try map.decode(String.self, forKey: .artistID)
         name = (try? map.decode(String.self, forKey: .name)) ?? ""
         
-        if let listenersStr = try? map.decode(String.self, forKey: .listeners) {
-            listeners = Int(listenersStr) ?? 0
+        if let valueStr = try? map.decode(String.self, forKey: .listeners), let value = Int(valueStr) {
+            listeners = value
+        } else {
+            listeners = 0
         }
         
         images = (try? map.decode(ImageList.self, forKey: .images)) ?? []
     }
     
     init(with managed: ArtistManaged) {
-        id = managed.id
+        artistID = managed.artistID
         name = managed.name
         listeners = managed.listeners
         images = managed.images.map { Image(with: $0) }
@@ -45,24 +60,22 @@ struct Artist: Decodable {
     
     func getManaged() -> ArtistManaged {
         let managed = ArtistManaged()
-        managed.id = id
+        managed.artistID = artistID
         managed.name = name
         managed.listeners = 0
-        
-        managed.images = List<ImageManaged>()
-        managed.images.append(objectsIn: images.map { $0.getManaged() })
+        managed.images = images.managedList()
         return managed
     }
 }
 
 class ArtistManaged: Object {
-    @objc dynamic var id: String = ""
+    @objc dynamic var artistID: String = ""
     @objc dynamic var name: String = ""
     @objc dynamic var listeners: Int = 0
     
     var images = List<ImageManaged>()
     
     override static func primaryKey() -> String? {
-        return "id"
+        return "artistID"
     }
 }

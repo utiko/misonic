@@ -113,7 +113,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bFp-3T-KyM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1756" y="-324"/>
+            <point key="canvasLocation" x="1460" y="134"/>
         </scene>
         <!--Favorite Albums-->
         <scene sceneID="NW4-zR-oLv">
@@ -167,6 +167,48 @@ in your library</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xfz-P7-F8B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="974" y="134"/>
+        </scene>
+        <!--Artist View Controller-->
+        <scene sceneID="D8s-2Y-aZQ">
+            <objects>
+                <viewController storyboardIdentifier="ArtistViewController" id="twc-YN-ubC" customClass="ArtistViewController" customModule="Misonic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LSl-D9-Abz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dsp-9f-r8X">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Z28-FT-sym">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="twc-YN-ubC" id="9gD-MK-Xgl"/>
+                                    <outlet property="delegate" destination="twc-YN-ubC" id="3JV-sQ-gdD"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="dsp-9f-r8X" firstAttribute="leading" secondItem="LSl-D9-Abz" secondAttribute="leading" id="F36-ux-jz7"/>
+                            <constraint firstItem="dsp-9f-r8X" firstAttribute="top" secondItem="LSl-D9-Abz" secondAttribute="top" id="rJM-CS-25P"/>
+                            <constraint firstAttribute="trailing" secondItem="dsp-9f-r8X" secondAttribute="trailing" id="veI-Yl-0kT"/>
+                            <constraint firstAttribute="bottom" secondItem="dsp-9f-r8X" secondAttribute="bottom" id="y9q-7b-tYj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="u4c-j0-0Ai"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="collectionView" destination="dsp-9f-r8X" id="dmP-lS-fqc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uiz-TP-vpI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="974" y="950"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3jy-5r-o4Q">

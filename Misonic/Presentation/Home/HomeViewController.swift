@@ -25,7 +25,7 @@ class HomeViewController: UIViewController {
                     })
                 }
                 print(result)
-            case .successWithError(let serverError):
+            case .errorResponse(let serverError):
                 print(serverError.message)
             case .error(let error):
                 print(error ?? "Unknown error")

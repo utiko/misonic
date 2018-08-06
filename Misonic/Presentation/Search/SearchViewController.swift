@@ -10,7 +10,7 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
-    var dataModel = SearchDataModel()
+    var dataModel = SearchScreenDataModel()
     
     lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
@@ -87,11 +87,18 @@ extension SearchViewController: UITableViewDataSource {
 
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        searchBar.resignFirstResponder()
+        
         tableView.deselectRow(at: indexPath, animated: true)
+        let artist = dataModel.artist(at: indexPath.row)
+        let screenModel = ArtistScreenDataModel(artistID: artist.artistID)
+        let vc = ArtistViewController.loadFromStoryboard()
+        vc.dataModel = screenModel
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
-extension SearchViewController: SearchDataModelDelegate {
+extension SearchViewController: SearchScreenDataModelDelegate {
     func searchResultUpdated() {
         reloadData()
     }

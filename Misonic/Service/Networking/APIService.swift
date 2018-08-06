@@ -35,7 +35,7 @@ class APIService {
                 if requestItem.successCodes().contains(response.response?.statusCode ?? 0) {
                     requestItem.requestCompleted(value)
                 } else {
-                    requestItem.requestCompletedWithServerError(value)
+                    requestItem.requestCompletedWithErrorResponse(value)
                 }
             case .failure(let error):
                 requestItem.requestCompleted(error)
@@ -50,4 +50,9 @@ extension APIService.Constants {
         static let apiKey = "api_key"
         static let format = "format"
     }
+}
+
+struct ErrorResponse: Decodable {
+    var error: Int = 0
+    var message = ""
 }

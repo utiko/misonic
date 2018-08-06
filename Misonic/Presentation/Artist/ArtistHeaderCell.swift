@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import Reusable
 
-class ArtistHeaderCell: UICollectionViewCell {
+class ArtistHeaderCell: UICollectionViewCell, Reusable {
 
+    @IBOutlet weak var artistImageView: UIImageView!
+    @IBOutlet weak var artistNameLabel: UILabel!
+    @IBOutlet weak var listenersCountLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

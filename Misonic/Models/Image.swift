@@ -18,7 +18,7 @@ enum ImageSizeType: String, Decodable {
     case unknown
 }
 
-struct Image: Decodable {
+struct Image: Decodable, ManagedConvertable {
     
     var size: ImageSizeType = .unknown
     var url: URL?
@@ -55,11 +55,19 @@ class ImageManaged: Object {
 typealias ImageList = [Image]
 
 extension Array where Iterator.Element == Image {
+    typealias ManagedType = Image.ManagedType
+    
     func imageUrl(for size: ImageSizeType) -> URL? {
         return self.first { $0.size == size}?.url ?? anyImageUrl()
     }
     
     func anyImageUrl() -> URL? {
         return self.reversed().first { $0.url != nil }?.url
+    }
+
+    func managedList() -> List<ManagedType> {
+        let list = List<ManagedType>()
+        list.append(objectsIn: map { $0.getManaged() })
+        return list
     }
 }
