@@ -9,17 +9,12 @@
 import UIKit
 import AlamofireImage
 
-protocol ModelConfigurableCell {
-    associatedtype ModelType
-    func configure(with model: ModelType)
-}
-
 class SearchResultArtistCell: UITableViewCell, ModelConfigurableCell {
     typealias ModelType = Artist
     
-    @IBOutlet weak var artistImageView: UIImageView!
-    @IBOutlet weak var artistNameLabel: UILabel!
-    @IBOutlet weak var artistListenersLabel: UILabel!
+    @IBOutlet private weak var artistImageView: UIImageView!
+    @IBOutlet private weak var artistNameLabel: UILabel!
+    @IBOutlet private weak var artistListenersLabel: UILabel!
 
     func configure(with model: Artist) {
         if let url = model.images.imageUrl(for: .medium) {

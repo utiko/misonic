@@ -12,30 +12,34 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ArtistHeaderCell" customModule="Misonic" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ArtistHeaderCell" id="gTV-IL-0wX" customClass="ArtistHeaderCell" customModule="Misonic" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XwZ-VS-rF5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XwZ-VS-rF5" customClass="ArtistImageView" customModule="Misonic" customModuleProvider="target">
+                        <rect key="frame" x="70" y="40" width="180" height="180"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="180" id="9uE-e4-gTU"/>
+                            <constraint firstAttribute="width" constant="180" id="G5x-l4-7uk"/>
+                        </constraints>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pUh-J5-Xt5">
-                        <rect key="frame" x="0.0" y="231.5" width="320" height="68.5"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pUh-J5-Xt5" customClass="GradientView" customModule="Misonic" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="229" width="320" height="71"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZNv-Lz-YIT">
-                                <rect key="frame" x="15" y="15" width="290" height="38.5"/>
+                                <rect key="frame" x="15" y="15" width="290" height="41"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6x4-pA-Vdv">
-                                        <rect key="frame" x="0.0" y="0.0" width="290" height="21.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="290" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xz8-Ds-mwv">
-                                        <rect key="frame" x="0.0" y="21.5" width="290" height="17"/>
+                                        <rect key="frame" x="0.0" y="24" width="290" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -50,17 +54,23 @@
                             <constraint firstAttribute="trailing" secondItem="ZNv-Lz-YIT" secondAttribute="trailing" constant="15" id="rqu-B3-D4N"/>
                             <constraint firstItem="ZNv-Lz-YIT" firstAttribute="top" secondItem="pUh-J5-Xt5" secondAttribute="top" constant="15" id="s7x-od-0JQ"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="topColor">
+                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
+                                <color key="value" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="XwZ-VS-rF5" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Alb-bv-Ngy"/>
-                <constraint firstAttribute="bottom" secondItem="XwZ-VS-rF5" secondAttribute="bottom" id="KRp-ZW-NEp"/>
+                <constraint firstItem="XwZ-VS-rF5" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="1GG-HF-ObQ"/>
+                <constraint firstItem="XwZ-VS-rF5" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" constant="-20" id="Adu-TZ-Eda"/>
                 <constraint firstItem="pUh-J5-Xt5" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Wnu-WW-bon"/>
-                <constraint firstItem="XwZ-VS-rF5" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Xun-r5-eeT"/>
                 <constraint firstAttribute="trailing" secondItem="pUh-J5-Xt5" secondAttribute="trailing" id="d4u-R5-s4k"/>
                 <constraint firstAttribute="bottom" secondItem="pUh-J5-Xt5" secondAttribute="bottom" id="ngw-lv-bGq"/>
-                <constraint firstAttribute="trailing" secondItem="XwZ-VS-rF5" secondAttribute="trailing" id="ys5-Be-Unl"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>

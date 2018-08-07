@@ -28,14 +28,14 @@ class SearchViewController: UIViewController {
         
         navigationItem.titleView = searchBar
         searchBar.layoutIfNeeded()
-        
+        searchBar.becomeFirstResponder()
+
         dataModel.delegate = self
         reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        searchBar.becomeFirstResponder()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

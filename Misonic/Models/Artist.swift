@@ -10,13 +10,6 @@ import Foundation
 import RealmSwift
 import Realm
 
-protocol ManagedConvertable {
-    associatedtype ManagedType: Object
-    
-    init(with managed: ManagedType)
-    func getManaged() -> ManagedType
-}
-
 protocol ArrayConvertable {
     associatedtype ManagedType: Object
     
@@ -28,12 +21,14 @@ struct Artist: Decodable, ManagedConvertable {
     var artistID: String
     var name: String
     var listeners: Int
+    var stats: ArtistStats?
     var images: ImageList
     
     private enum CodingKeys: String, CodingKey {
         case artistID = "mbid"
         case name
         case listeners
+        case stats
         case images = "image"
     }
     
@@ -48,6 +43,7 @@ struct Artist: Decodable, ManagedConvertable {
             listeners = 0
         }
         
+        stats = try? map.decode(ArtistStats.self, forKey: .stats)
         images = (try? map.decode(ImageList.self, forKey: .images)) ?? []
     }
     
@@ -66,6 +62,11 @@ struct Artist: Decodable, ManagedConvertable {
         managed.images = images.managedList()
         return managed
     }
+}
+
+struct ArtistStats: Decodable {
+    var listeners: StringCodableMap<Int>
+    var playcount: StringCodableMap<Int>
 }
 
 class ArtistManaged: Object {

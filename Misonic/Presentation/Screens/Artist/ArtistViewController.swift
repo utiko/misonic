@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Reusable
 
 class ArtistViewController: UIViewController, StoryboardLoadable {
     static var sourceStoryboard: Storyboard = .main
@@ -15,12 +16,13 @@ class ArtistViewController: UIViewController, StoryboardLoadable {
     
     @IBOutlet private weak var collectionView: UICollectionView!
     private let headerSection = 0
-    private let albumsSection = 0
+    private let albumsSection = 1
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        registerCells()
+        collectionView.backgroundColor = UIColor.Misonic.background
+        registerNibs()
         dataModel.delegate = self
         reloadData()
     }
@@ -31,8 +33,11 @@ class ArtistViewController: UIViewController, StoryboardLoadable {
         dataModel.startLoadingData()
     }
     
-    func registerCells() {
+    func registerNibs() {
         collectionView.register(cellType: ArtistHeaderCell.self)
+        collectionView.register(cellType: ArtistAlbumCell.self)
+        collectionView.register(supplementaryViewType: CollectionSectionHeaderView.self,
+                                ofKind: UICollectionElementKindSectionHeader)
     }
     
     func reloadData() {
@@ -64,13 +69,31 @@ extension ArtistViewController: UICollectionViewDataSource {
         switch indexPath.section {
         case headerSection:
             let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: ArtistHeaderCell.self)
+            if let artist = dataModel.artist {
+                cell.configure(with: artist)
+            }
             return cell
         
         case albumsSection:
-            return UICollectionViewCell()
+            let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: ArtistAlbumCell.self)
+            let album = dataModel.albums[indexPath.row]
+            cell.configure(with: album)
+            return cell
 
         default:
             return UICollectionViewCell()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch indexPath.section {
+        case albumsSection:
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, for: indexPath, viewType: CollectionSectionHeaderView.self)
+            headerView.title = "Albums"
+            return headerView
+
+        default:
+            return UICollectionReusableView(frame: CGRect.zero)
         }
     }
     
@@ -80,17 +103,20 @@ extension ArtistViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch indexPath.section {
         case headerSection:
-            let width = view.frame.size.width
-            let height = width
-            return CGSize(width: width, height: height)
+            return ArtistHeaderCell.size(for: collectionView)
 
         case albumsSection:
-            let width = view.frame.size.width / 2
-            let height = width
-            return CGSize(width: width, height: height)
+            return ArtistAlbumCell.size(for: collectionView)
             
         default:
             return CGSize.zero
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        switch section {
+        case albumsSection: return CGSize(width: collectionView.frame.size.width, height: 50)
+        default: return .zero
         }
     }
 }
