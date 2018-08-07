@@ -16,15 +16,15 @@ class SearchResultArtistCell: UITableViewCell, ModelConfigurableCell {
     @IBOutlet private weak var artistNameLabel: UILabel!
     @IBOutlet private weak var artistListenersLabel: UILabel!
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        artistImageView.image = nil
+    }
+    
     func configure(with model: Artist) {
-        if let url = model.images.imageUrl(for: .medium) {
-            artistImageView.af_setImage(withURL: url)
-        } else {
-            artistImageView.image = nil
-        }
-        
         artistNameLabel.text = model.name
         artistListenersLabel.text = "\(model.listeners) listeners"
+        artistImageView.setImage(with: model.images.imageUrl(forSize: .medium))
     }
     
     override func awakeFromNib() {

@@ -105,9 +105,31 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gIJ-uI-802"/>
                     </view>
-                    <navigationItem key="navigationItem" id="5HZ-Zf-qmF"/>
+                    <navigationItem key="navigationItem" id="5HZ-Zf-qmF">
+                        <nil key="title"/>
+                        <barButtonItem key="backBarButtonItem" title=" " id="w6k-sQ-dEr"/>
+                        <view key="titleView" contentMode="scaleToFill" id="lwS-Tj-ImN">
+                            <rect key="frame" x="97.5" y="7" width="180" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <searchBar contentMode="redraw" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="Azc-aO-hoE">
+                                    <rect key="frame" x="0.0" y="-13" width="180" height="56"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="6Zv-NV-0lj" id="qUF-Hd-zDx"/>
+                                    </connections>
+                                </searchBar>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="Azc-aO-hoE" secondAttribute="trailing" id="6p6-Zl-Odc"/>
+                                <constraint firstItem="Azc-aO-hoE" firstAttribute="centerY" secondItem="lwS-Tj-ImN" secondAttribute="centerY" id="Cun-Mf-2km"/>
+                                <constraint firstItem="Azc-aO-hoE" firstAttribute="leading" secondItem="lwS-Tj-ImN" secondAttribute="leading" id="nNj-i2-uRM"/>
+                            </constraints>
+                        </view>
+                    </navigationItem>
                     <connections>
                         <outlet property="emptyStateView" destination="Rdg-g8-8F9" id="BKy-RY-b0g"/>
+                        <outlet property="searchBar" destination="Azc-aO-hoE" id="ddi-Eo-R16"/>
                         <outlet property="tableView" destination="Wx0-zQ-9GO" id="tXR-aH-RS4"/>
                     </connections>
                 </viewController>

@@ -28,9 +28,7 @@ class ArtistAlbumCell: UICollectionViewCell, NibReusable, ModelConfigurableCell,
     
     func configure(with model: Album) {
         albumTitleLabel.text = model.name
-        if let url = model.images.imageUrl(for: .large) {
-            albumImageView.af_setImage(withURL: url)
-        }
+        albumImageView.setImage(with: model.images.imageUrl(forSize: .large))
     }
     
     static func size(for collectionView: UICollectionView) -> CGSize {

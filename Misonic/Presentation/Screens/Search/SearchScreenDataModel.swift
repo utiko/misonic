@@ -14,16 +14,25 @@ protocol SearchScreenDataModelDelegate: class {
 }
 
 class SearchScreenDataModel {
-    
-    private var results: [Artist] = []
-    
+
     public weak var delegate: SearchScreenDataModelDelegate?
+
+    private var results: [Artist] = []
+    private var qurrentQuery: String?
     
     public func search(with query: String) {
+        qurrentQuery = query
+        
         let searchArtists = ArtistSearchRequest { [weak self] (result) in
             switch result {
             case .success(let response):
-                self?.results = response.results.artistmatches.artists
+                // Prevent show old results
+                guard self?.qurrentQuery == query else { return }
+                
+                self?.results = response.results.artistmatches.artists.filter {
+                    !$0.artistID.isEmpty
+                }
+                
                 self?.delegate?.searchResultUpdated()
 
             case .errorResponse(let serverError):

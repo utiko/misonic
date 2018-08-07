@@ -12,25 +12,23 @@ class SearchViewController: UIViewController {
 
     var dataModel = SearchScreenDataModel()
     
-    lazy var searchBar: UISearchBar = {
-        let searchBar = UISearchBar()
-        searchBar.delegate = self
-        //searchBar.showsCancelButton = true
-        searchBar.barStyle = .blackTranslucent
-        return searchBar
-    }()
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var emptyStateView: UIView!
+    @IBOutlet private weak var searchBar: UISearchBar!
+    private weak var searchBarWidthConstraint: NSLayoutConstraint!
+
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var emptyStateView: UIView!
     
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.titleView = searchBar
+        //navigationItem.titleView = searchBar
         searchBar.layoutIfNeeded()
         searchBar.becomeFirstResponder()
 
         dataModel.delegate = self
+        
+        setupConstraints()
         reloadData()
     }
     
@@ -41,6 +39,20 @@ class SearchViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         searchBar.resignFirstResponder()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        searchBarWidthConstraint.constant = view.frame.size.width - 50
+        navigationItem.titleView?.layoutIfNeeded()
+    }
+    
+    func setupConstraints() {
+        searchBarWidthConstraint = navigationItem.titleView?.widthAnchor.constraint(equalToConstant: 60)
+        searchBarWidthConstraint.isActive = true
+        
+        navigationItem.titleView?.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
     
     // MARK: - Data
@@ -95,7 +107,7 @@ extension SearchViewController: UITableViewDelegate {
         let vc = ArtistViewController.loadFromStoryboard()
         vc.dataModel = screenModel
         navigationController?.pushViewController(vc, animated: true)
-    }
+    }    
 }
 
 extension SearchViewController: SearchScreenDataModelDelegate {

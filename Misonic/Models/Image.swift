@@ -57,7 +57,7 @@ typealias ImageList = [Image]
 extension Array where Iterator.Element == Image {
     typealias ManagedType = Image.ManagedType
     
-    func imageUrl(for size: ImageSizeType) -> URL? {
+    func imageUrl(forSize size: ImageSizeType) -> URL? {
         return self.first { $0.size == size}?.url ?? anyImageUrl()
     }
     

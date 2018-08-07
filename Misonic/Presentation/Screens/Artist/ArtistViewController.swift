@@ -119,4 +119,17 @@ extension ArtistViewController: UICollectionViewDelegateFlowLayout {
         default: return .zero
         }
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let scrollPosition = scrollView.adjustedContentInset.top + scrollView.contentOffset.y
+        if let cell = collectionView.cellForItem(at: IndexPath(row: 0, section: headerSection)) as? ArtistHeaderCell {
+            cell.updateParalax(forPosition: scrollPosition)
+            
+            navigationItem.title = scrollPosition > cell.frame.size.height - 20
+                ? dataModel.artist?.name
+                : ""
+        }
+
+    }
+
 }
