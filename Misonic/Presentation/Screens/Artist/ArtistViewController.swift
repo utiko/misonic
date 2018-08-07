@@ -100,6 +100,16 @@ extension ArtistViewController: UICollectionViewDataSource {
 }
 
 extension ArtistViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard indexPath.section == albumsSection else { return }
+        
+        let album = dataModel.albums[indexPath.row]
+        let albumDataModel = AlbumScreenDataModel(albumID: album.albumID)
+        let vc = AlbumViewController.loadFromStoryboard()
+        vc.dataModel = albumDataModel
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch indexPath.section {
         case headerSection:
@@ -120,6 +130,15 @@ extension ArtistViewController: UICollectionViewDelegateFlowLayout {
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        switch section {
+        case albumsSection:
+            return UIEdgeInsets.init(top: 0, left: 16, bottom: 0, right: 16)
+        default:
+            return UIEdgeInsets.zero
+        }
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let scrollPosition = scrollView.adjustedContentInset.top + scrollView.contentOffset.y
         if let cell = collectionView.cellForItem(at: IndexPath(row: 0, section: headerSection)) as? ArtistHeaderCell {
@@ -129,7 +148,6 @@ extension ArtistViewController: UICollectionViewDelegateFlowLayout {
                 ? dataModel.artist?.name
                 : ""
         }
-
     }
 
 }

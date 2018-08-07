@@ -55,8 +55,7 @@ class ImageManaged: Object {
 typealias ImageList = [Image]
 
 extension Array where Iterator.Element == Image {
-    typealias ManagedType = Image.ManagedType
-    
+
     func imageUrl(forSize size: ImageSizeType) -> URL? {
         return self.first { $0.size == size}?.url ?? anyImageUrl()
     }
@@ -65,8 +64,8 @@ extension Array where Iterator.Element == Image {
         return self.reversed().first { $0.url != nil }?.url
     }
 
-    func managedList() -> List<ManagedType> {
-        let list = List<ManagedType>()
+    func managedList() -> List<ImageManaged> {
+        let list = List<ImageManaged>()
         list.append(objectsIn: map { $0.getManaged() })
         return list
     }

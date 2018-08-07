@@ -27,10 +27,10 @@
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pUh-J5-Xt5" customClass="GradientView" customModule="Misonic" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="229" width="320" height="71"/>
+                        <rect key="frame" x="0.0" y="189" width="320" height="111"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZNv-Lz-YIT">
-                                <rect key="frame" x="15" y="15" width="290" height="41"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ZNv-Lz-YIT">
+                                <rect key="frame" x="15" y="50" width="290" height="46"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6x4-pA-Vdv">
                                         <rect key="frame" x="0.0" y="0.0" width="290" height="24"/>
@@ -39,7 +39,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xz8-Ds-mwv">
-                                        <rect key="frame" x="0.0" y="24" width="290" height="17"/>
+                                        <rect key="frame" x="0.0" y="29" width="290" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -52,14 +52,14 @@
                             <constraint firstItem="ZNv-Lz-YIT" firstAttribute="leading" secondItem="pUh-J5-Xt5" secondAttribute="leading" constant="15" id="ZZ9-xA-W3p"/>
                             <constraint firstAttribute="bottom" secondItem="ZNv-Lz-YIT" secondAttribute="bottom" constant="15" id="dau-SW-Usj"/>
                             <constraint firstAttribute="trailing" secondItem="ZNv-Lz-YIT" secondAttribute="trailing" constant="15" id="rqu-B3-D4N"/>
-                            <constraint firstItem="ZNv-Lz-YIT" firstAttribute="top" secondItem="pUh-J5-Xt5" secondAttribute="top" constant="15" id="s7x-od-0JQ"/>
+                            <constraint firstItem="ZNv-Lz-YIT" firstAttribute="top" secondItem="pUh-J5-Xt5" secondAttribute="top" constant="50" id="s7x-od-0JQ"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="topColor">
                                 <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
-                                <color key="value" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="value" white="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>

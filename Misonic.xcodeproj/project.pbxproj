@@ -13,6 +13,12 @@
 		3D161FA2211A255900F192E8 /* UIImageView+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D161FA1211A255900F192E8 /* UIImageView+URL.swift */; };
 		3D161FA5211A2D6100F192E8 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D161FA4211A2D6100F192E8 /* AlbumViewController.swift */; };
 		3D161FA7211A2DDB00F192E8 /* AlbumScreenDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D161FA6211A2DDB00F192E8 /* AlbumScreenDataModel.swift */; };
+		3D161FA9211A2F1600F192E8 /* GetAlbumInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D161FA8211A2F1600F192E8 /* GetAlbumInfoRequest.swift */; };
+		3D161FAB211A335900F192E8 /* AlbumTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D161FAA211A335900F192E8 /* AlbumTrack.swift */; };
+		3D161FAE211A3AC100F192E8 /* AlbumHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D161FAC211A3AC100F192E8 /* AlbumHeaderCell.swift */; };
+		3D161FAF211A3AC100F192E8 /* AlbumHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D161FAD211A3AC100F192E8 /* AlbumHeaderCell.xib */; };
+		3D161FB2211A464000F192E8 /* AlbumTrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D161FB0211A464000F192E8 /* AlbumTrackCell.swift */; };
+		3D161FB3211A464000F192E8 /* AlbumTrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D161FB1211A464000F192E8 /* AlbumTrackCell.xib */; };
 		3DB184F22118A0BC002B6F4D /* ArtistScreenDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB184F12118A0BC002B6F4D /* ArtistScreenDataModel.swift */; };
 		3DB184F42118A36B002B6F4D /* GetArtistInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB184F32118A36B002B6F4D /* GetArtistInfoRequest.swift */; };
 		3DB184F62118BFBD002B6F4D /* GetArtistAlbumsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB184F52118BFBD002B6F4D /* GetArtistAlbumsRequest.swift */; };
@@ -54,6 +60,12 @@
 		3D161FA1211A255900F192E8 /* UIImageView+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+URL.swift"; sourceTree = "<group>"; };
 		3D161FA4211A2D6100F192E8 /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		3D161FA6211A2DDB00F192E8 /* AlbumScreenDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumScreenDataModel.swift; sourceTree = "<group>"; };
+		3D161FA8211A2F1600F192E8 /* GetAlbumInfoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAlbumInfoRequest.swift; sourceTree = "<group>"; };
+		3D161FAA211A335900F192E8 /* AlbumTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTrack.swift; sourceTree = "<group>"; };
+		3D161FAC211A3AC100F192E8 /* AlbumHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumHeaderCell.swift; sourceTree = "<group>"; };
+		3D161FAD211A3AC100F192E8 /* AlbumHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumHeaderCell.xib; sourceTree = "<group>"; };
+		3D161FB0211A464000F192E8 /* AlbumTrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTrackCell.swift; sourceTree = "<group>"; };
+		3D161FB1211A464000F192E8 /* AlbumTrackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumTrackCell.xib; sourceTree = "<group>"; };
 		3DB184F12118A0BC002B6F4D /* ArtistScreenDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistScreenDataModel.swift; sourceTree = "<group>"; };
 		3DB184F32118A36B002B6F4D /* GetArtistInfoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetArtistInfoRequest.swift; sourceTree = "<group>"; };
 		3DB184F52118BFBD002B6F4D /* GetArtistAlbumsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetArtistAlbumsRequest.swift; sourceTree = "<group>"; };
@@ -121,8 +133,6 @@
 				3D161F9D21180AA100F192E8 /* ArtistHeaderCell.xib */,
 				3DB1850B21198993002B6F4D /* ArtistAlbumCell.swift */,
 				3DB1850C21198993002B6F4D /* ArtistAlbumCell.xib */,
-				3DB18512211991A6002B6F4D /* CollectionSectionHeaderView.swift */,
-				3DB18514211991AF002B6F4D /* CollectionSectionHeaderView.xib */,
 			);
 			path = Artist;
 			sourceTree = "<group>";
@@ -140,6 +150,10 @@
 			children = (
 				3D161FA4211A2D6100F192E8 /* AlbumViewController.swift */,
 				3D161FA6211A2DDB00F192E8 /* AlbumScreenDataModel.swift */,
+				3D161FAC211A3AC100F192E8 /* AlbumHeaderCell.swift */,
+				3D161FAD211A3AC100F192E8 /* AlbumHeaderCell.xib */,
+				3D161FB0211A464000F192E8 /* AlbumTrackCell.swift */,
+				3D161FB1211A464000F192E8 /* AlbumTrackCell.xib */,
 			);
 			path = Album;
 			sourceTree = "<group>";
@@ -189,6 +203,8 @@
 				3DB1850F21198CE7002B6F4D /* Protocols */,
 				3DB185072119833C002B6F4D /* ArtistImageView.swift */,
 				3DB18509211984DA002B6F4D /* GradientView.swift */,
+				3DB18512211991A6002B6F4D /* CollectionSectionHeaderView.swift */,
+				3DB18514211991AF002B6F4D /* CollectionSectionHeaderView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -286,6 +302,7 @@
 				3DFE4AE32115B27D00B9D2F2 /* ArtistSearchRequest.swift */,
 				3DB184F32118A36B002B6F4D /* GetArtistInfoRequest.swift */,
 				3DB184F52118BFBD002B6F4D /* GetArtistAlbumsRequest.swift */,
+				3D161FA8211A2F1600F192E8 /* GetAlbumInfoRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -304,6 +321,7 @@
 				3DB184FD21197E85002B6F4D /* Utilities */,
 				3DFE4AE92115CE5100B9D2F2 /* Artist.swift */,
 				3DFE4AED2116386800B9D2F2 /* Album.swift */,
+				3D161FAA211A335900F192E8 /* AlbumTrack.swift */,
 				3DFE4AEB2115CE5900B9D2F2 /* Image.swift */,
 			);
 			path = Models;
@@ -391,10 +409,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DB18515211991AF002B6F4D /* CollectionSectionHeaderView.xib in Resources */,
+				3D161FB3211A464000F192E8 /* AlbumTrackCell.xib in Resources */,
 				3DF60B582112C46700BD21CB /* LaunchScreen.storyboard in Resources */,
 				3D161F9F21180AA100F192E8 /* ArtistHeaderCell.xib in Resources */,
 				3DF60B552112C46700BD21CB /* Assets.xcassets in Resources */,
 				3DF60B502112C46600BD21CB /* Main.storyboard in Resources */,
+				3D161FAF211A3AC100F192E8 /* AlbumHeaderCell.xib in Resources */,
 				3DB1850E21198993002B6F4D /* ArtistAlbumCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -485,9 +505,12 @@
 				3D161F9E21180AA100F192E8 /* ArtistHeaderCell.swift in Sources */,
 				3D161FA7211A2DDB00F192E8 /* AlbumScreenDataModel.swift in Sources */,
 				3D161FA2211A255900F192E8 /* UIImageView+URL.swift in Sources */,
+				3D161FAB211A335900F192E8 /* AlbumTrack.swift in Sources */,
 				3DFE4AE72115CD0C00B9D2F2 /* DatabaseProvider.swift in Sources */,
 				3DFE4ADE2115A0CA00B9D2F2 /* NetworkingConfiguration.swift in Sources */,
 				3DB184FB2118C8C4002B6F4D /* StoryboardLoadable.swift in Sources */,
+				3D161FAE211A3AC100F192E8 /* AlbumHeaderCell.swift in Sources */,
+				3D161FB2211A464000F192E8 /* AlbumTrackCell.swift in Sources */,
 				3D161FA5211A2D6100F192E8 /* AlbumViewController.swift in Sources */,
 				3DFE4AEA2115CE5100B9D2F2 /* Artist.swift in Sources */,
 				3DF60B4D2112C46600BD21CB /* HomeViewController.swift in Sources */,
@@ -507,6 +530,7 @@
 				3DF60B4B2112C46600BD21CB /* AppDelegate.swift in Sources */,
 				3DFE4AF5211656F200B9D2F2 /* SearchResultArtistCell.swift in Sources */,
 				3DB18513211991A6002B6F4D /* CollectionSectionHeaderView.swift in Sources */,
+				3D161FA9211A2F1600F192E8 /* GetAlbumInfoRequest.swift in Sources */,
 				3DFE4AEC2115CE5900B9D2F2 /* Image.swift in Sources */,
 				3DFE4AF7211659C800B9D2F2 /* SearchScreenDataModel.swift in Sources */,
 				3DB1850A211984DA002B6F4D /* GradientView.swift in Sources */,

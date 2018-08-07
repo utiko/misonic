@@ -39,5 +39,4 @@ class ArtistAlbumCell: UICollectionViewCell, NibReusable, ModelConfigurableCell,
         let height = width + 50
         return CGSize(width: width, height: height)
     }
-
 }

@@ -17,11 +17,6 @@ class ArtistHeaderCell: UICollectionViewCell, NibReusable, ModelConfigurableCell
     @IBOutlet private weak var artistNameLabel: UILabel!
     @IBOutlet private weak var listenersCountLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
     func configure(with model: Artist) {
         artistNameLabel.text = model.name
         

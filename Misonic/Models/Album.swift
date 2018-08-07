@@ -9,6 +9,20 @@
 import Foundation
 import RealmSwift
 
+extension KeyedDecodingContainer {
+    public func decodeStringTo(_ type: Int.Type, forKey key: K) throws -> Int {
+        if let strValue = try? decode(String.self, forKey: key), let value = Int(strValue) {
+            return value
+        }
+        
+        do {
+            return try decode(Int.self, forKey: key)
+        } catch {
+            throw error
+        }
+    }
+}
+
 struct Album: Decodable, ManagedConvertable {
     typealias ManagedType = AlbumManaged
     
@@ -17,6 +31,7 @@ struct Album: Decodable, ManagedConvertable {
     var name: String
     var playcount: Int
     var images: ImageList
+    var tracks: [AlbumTrack]
     
     private enum CodingKeys: String, CodingKey {
         case albumID = "mbid"
@@ -24,6 +39,7 @@ struct Album: Decodable, ManagedConvertable {
         case name
         case playcount
         case images = "image"
+        case tracks
     }
     
     init(from decoder: Decoder) throws {
@@ -34,9 +50,19 @@ struct Album: Decodable, ManagedConvertable {
         albumID = (try? map.decode(String.self, forKey: .albumID)) ?? ""
         
         name = (try? map.decode(String.self, forKey: .name)) ?? ""
-        artist = (try? map.decode(AlbumArtist.self, forKey: .artist)) ?? AlbumArtist()
-        playcount = (try? map.decode(Int.self, forKey: .playcount)) ?? 0
+        playcount = (try? map.decodeStringTo(Int.self, forKey: .playcount)) ?? 0
         images = (try? map.decode(ImageList.self, forKey: .images)) ?? []
+        
+        var albumTracks = [AlbumTrack]()
+        if let trackContainer = try? map.decode(AlbumTrackContainer.self, forKey: .tracks) {
+            albumTracks = trackContainer.tracks
+        }
+        tracks = albumTracks
+        
+        // Use artist from first track if missed at album
+        artist = (try? map.decode(AlbumArtist.self, forKey: .artist))
+            ?? albumTracks.first?.artist
+            ?? AlbumArtist()
     }
     
     init(with managed: AlbumManaged) {
@@ -45,6 +71,7 @@ struct Album: Decodable, ManagedConvertable {
         artist = AlbumArtist(artistID: managed.artistID, name: managed.artistName)
         playcount = managed.playcount
         images = managed.images.map { Image(with: $0) }
+        tracks = managed.tracks.map { AlbumTrack(with: $0) }
     }
     
     func getManaged() -> AlbumManaged {
@@ -54,6 +81,7 @@ struct Album: Decodable, ManagedConvertable {
         managed.artistID = artist.artistID
         managed.artistName = artist.name
         managed.images = images.managedList()
+        managed.tracks = tracks.managedList()
         return managed
     }
 }
@@ -71,12 +99,13 @@ struct AlbumArtist: Decodable {
 class AlbumManaged: Object {
     @objc dynamic var albumID: String = ""
     @objc dynamic var name: String = ""
+    @objc dynamic var playcount: Int = 0
     @objc dynamic var artistID: String = ""
     @objc dynamic var artistName: String = ""
-    @objc dynamic var playcount: Int = 0
 
     var images = List<ImageManaged>()
-    
+    var tracks = List<AlbumTrackManaged>()
+
     override static func primaryKey() -> String? {
         return "albumID"
     }
