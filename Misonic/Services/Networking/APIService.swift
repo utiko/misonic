@@ -9,10 +9,21 @@
 import Foundation
 import Alamofire
 
+protocol BaseRequestProtocol {
+    func httpMethod() -> HTTPMethod
+    func apiMethod() -> String
+    func parameters() -> [String: Any]
+    func headers() -> [String: String]
+    func encoding() -> RequestEncoding
+    func successCodes() -> [Int]
+    
+    func requestCompleted(_ data: Data)
+    func requestCompletedWithErrorResponse(_ errorData: Data)
+    func requestCompleted(_ error: Error)
+}
+
 class APIService {
     static let service = APIService()
-    
-    struct Constants {}
     
     let versionAPI = "2.0"
     
@@ -41,14 +52,6 @@ class APIService {
                 requestItem.requestCompleted(error)
             }
         }
-    }
-}
-
-extension APIService.Constants {
-    struct HeaderFields {
-        static let apiMethod = "method"
-        static let apiKey = "api_key"
-        static let format = "format"
     }
 }
 

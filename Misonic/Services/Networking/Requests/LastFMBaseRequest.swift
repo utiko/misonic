@@ -11,28 +11,20 @@ import Alamofire
 
 public typealias RequestEncoding = ParameterEncoding
 
-protocol BaseRequestProtocol {
-    func data() -> Data?
-    func httpMethod() -> HTTPMethod
-    func apiMethod() -> String
-    func parameters() -> [String: Any]
-    func headers() -> [String: String]
-    func encoding() -> RequestEncoding
-    func successCodes() -> [Int]
-    
-    func requestCompleted(_ data: Data)
-    func requestCompletedWithErrorResponse(_ errorData: Data)
-    func requestCompleted(_ error: Error)
-}
-
 enum ResponseType<T> {
     case success(T)
     case errorResponse(ErrorResponse)
     case error(Error?)
 }
 
-class BaseRequest<T: Decodable>: NSObject, BaseRequestProtocol {
+class LastFMBaseRequest<T: Decodable>: NSObject, BaseRequestProtocol {
     typealias ResultType = T
+    
+    private var completion: (ResponseType<T>) -> Void
+    
+    init(completion: @escaping (_ response: ResponseType<T>) -> Void) {
+        self.completion = completion
+    }
 
     func requestCompleted(_ data: Data) {
         do {
@@ -56,29 +48,6 @@ class BaseRequest<T: Decodable>: NSObject, BaseRequestProtocol {
         completion(ResponseType.error(error))
     }
     
-    var defaultHeaders: [String: String] {
-        var headers: [String: String] = [:]
-        
-        var currentDeviceLanguage = "en"
-        if let language = Locale.current.languageCode {
-            currentDeviceLanguage = language
-        }
-        
-        headers["Accept-Language"] =  currentDeviceLanguage
-        headers["Content-Type"] = "application/json"
-
-//        No authorization needed
-//        headers["Authorization"] =
-        
-        return headers
-    }
-    
-    var completion: (ResponseType<T>) -> Void
-    
-    init(completionClosure: @escaping (_ response: ResponseType<T>) -> Void) {
-        completion = completionClosure
-    }
-    
     func successCodes() -> [Int] {
         return [200]
     }
@@ -87,19 +56,15 @@ class BaseRequest<T: Decodable>: NSObject, BaseRequestProtocol {
         return .get
     }
     
-    func data() -> Data? {
-        return nil
-    }
-    
     func apiMethod() -> String {
         fatalError("Should be overrided")
     }
     
     func parameters() -> [String: Any] {
         return [
-            APIService.Constants.HeaderFields.apiMethod: apiMethod(),
-            APIService.Constants.HeaderFields.apiKey: NetworkingConfiguration.shared.apiKey,
-            APIService.Constants.HeaderFields.format: "json"
+            LastFMConstants.RequiredFields.apiMethod: apiMethod(),
+            LastFMConstants.RequiredFields.apiKey: NetworkingConfiguration.shared.apiKey,
+            LastFMConstants.RequiredFields.format: "json"
         ]
     }
     
@@ -108,10 +73,21 @@ class BaseRequest<T: Decodable>: NSObject, BaseRequestProtocol {
     }
     
     func headers() -> [String: String] {
-        return [:]
+        var headers = [String: String]()
+        headers["Accept-Language"] = Locale.current.languageCode ?? "en"
+        headers["Content-Type"] = "application/json"
+        return headers
     }
     
     func perform() {
         APIService.service.performRequest(self)
+    }
+}
+
+struct LastFMConstants {
+    struct RequiredFields {
+        static let apiMethod = "method"
+        static let apiKey = "api_key"
+        static let format = "format"
     }
 }
