@@ -8,8 +8,7 @@
 
 import Foundation
 
-protocol SearchScreenDataModelDelegate: class {
-    func searchResultUpdated()
+protocol SearchScreenDataModelDelegate: ScreenDataModelDelegate {
     func searchFailure(with errorMessage: String?)
 }
 
@@ -33,14 +32,14 @@ class SearchScreenDataModel {
                     !$0.artistID.isEmpty
                 }
                 
-                self?.delegate?.searchResultUpdated()
+                self?.delegate?.dataUpdated()
 
             case .errorResponse(let serverError):
                 // Handle server error
                 self?.delegate?.searchFailure(with: serverError.message)
 
             case .error(let error):
-                // Handle behavior error
+                // Handle local error
                 self?.delegate?.searchFailure(with: error?.localizedDescription)
             }
         }

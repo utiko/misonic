@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Album View Controller-->
+        <scene sceneID="8er-CE-sex">
+            <objects>
+                <viewController storyboardIdentifier="AlbumViewController" id="cBX-x0-zKh" customClass="AlbumViewController" customModule="Misonic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IBE-SH-fD3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xTI-kI-Lsy">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="0.0" id="2e5-RQ-ef3">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="cBX-x0-zKh" id="oJ7-KX-j3z"/>
+                                    <outlet property="delegate" destination="cBX-x0-zKh" id="GzJ-uJ-2Ln"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="xTI-kI-Lsy" firstAttribute="leading" secondItem="IBE-SH-fD3" secondAttribute="leading" id="1vI-x4-BZA"/>
+                            <constraint firstAttribute="trailing" secondItem="xTI-kI-Lsy" secondAttribute="trailing" id="QoP-Tk-2jx"/>
+                            <constraint firstItem="xTI-kI-Lsy" firstAttribute="top" secondItem="IBE-SH-fD3" secondAttribute="top" id="vDg-Cu-OvQ"/>
+                            <constraint firstAttribute="bottom" secondItem="xTI-kI-Lsy" secondAttribute="bottom" id="vqi-dQ-eYp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Nbe-1S-4D0"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="XEv-fX-R9e">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Cwg-tW-meG"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="collectionView" destination="xTI-kI-Lsy" id="1Zu-dZ-C5N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MzB-LL-Za5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1678" y="872"/>
+        </scene>
+        <!--Artist View Controller-->
+        <scene sceneID="0ga-YI-gal">
+            <objects>
+                <viewController storyboardIdentifier="ArtistViewController" id="xxA-1E-l0B" customClass="ArtistViewController" customModule="Misonic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1tt-Z7-Jrg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kar-SM-YK7">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="16" id="beh-Du-T2h">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="xxA-1E-l0B" id="PFr-ik-cv8"/>
+                                    <outlet property="delegate" destination="xxA-1E-l0B" id="rwJ-ur-kez"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="kar-SM-YK7" firstAttribute="leading" secondItem="1tt-Z7-Jrg" secondAttribute="leading" id="DqF-LK-wZ2"/>
+                            <constraint firstAttribute="bottom" secondItem="kar-SM-YK7" secondAttribute="bottom" id="Xv7-gW-rti"/>
+                            <constraint firstItem="kar-SM-YK7" firstAttribute="top" secondItem="1tt-Z7-Jrg" secondAttribute="top" id="dZK-Sl-yjc"/>
+                            <constraint firstAttribute="trailing" secondItem="kar-SM-YK7" secondAttribute="trailing" id="g4s-hn-uNw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Hwt-Ig-VAE"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kvb-VL-8Kx">
+                        <barButtonItem key="backBarButtonItem" title=" " id="JH5-zK-eoi"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="collectionView" destination="kar-SM-YK7" id="XqP-f5-4FQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PAt-Zb-Jkm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="905" y="872"/>
+        </scene>
+    </scenes>
+</document>

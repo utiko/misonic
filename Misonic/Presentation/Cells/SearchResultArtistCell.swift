@@ -8,8 +8,9 @@
 
 import UIKit
 import AlamofireImage
+import Reusable
 
-class SearchResultArtistCell: UITableViewCell, ModelConfigurableCell {
+class SearchResultArtistCell: UITableViewCell, NibReusable, ModelConfigurableCell {
     typealias ModelType = Artist
     
     @IBOutlet private weak var artistImageView: UIImageView!

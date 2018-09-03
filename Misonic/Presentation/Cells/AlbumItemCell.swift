@@ -1,5 +1,5 @@
 //
-//  ArtistAlbumCell.swift
+//  AlbumItemCell.swift
 //  Misonic
 //
 //  Created by Kostia Kolesnyk on 8/7/18.
@@ -9,7 +9,7 @@
 import UIKit
 import Reusable
 
-class ArtistAlbumCell: UICollectionViewCell, NibReusable, ModelConfigurableCell, CollectionCellLayouting {
+class AlbumItemCell: UICollectionViewCell, NibReusable, ModelConfigurableCell, CollectionCellLayouting {
     
     typealias ModelType = Album
 

@@ -82,6 +82,7 @@ struct Album: Decodable, ManagedConvertable {
         managed.artistName = artist.name
         managed.images = images.managedList()
         managed.tracks = tracks.managedList()
+        managed.playcount = playcount
         return managed
     }
 }

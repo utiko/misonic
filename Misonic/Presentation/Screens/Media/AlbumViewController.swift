@@ -10,7 +10,8 @@ import UIKit
 import Reusable
 
 class AlbumViewController: UIViewController, StoryboardLoadable {
-    static var sourceStoryboard: Storyboard = .main
+
+    static var sourceStoryboard: Storyboard = .media
 
     var dataModel: AlbumScreenDataModel!
     
@@ -21,13 +22,20 @@ class AlbumViewController: UIViewController, StoryboardLoadable {
     override func viewDidLoad() {
         super.viewDidLoad()
      
-        registerNibs()
+        registerCells()
         
         dataModel.delegate = self
         dataModel.startLoadingData()
+
+        collectionView.isHidden = dataModel.album == nil
     }
     
-    func registerNibs() {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
+    
+    func registerCells() {
         collectionView.register(cellType: AlbumHeaderCell.self)
         collectionView.register(cellType: AlbumTrackCell.self)
         collectionView.register(supplementaryViewType: CollectionSectionHeaderView.self,
@@ -37,10 +45,32 @@ class AlbumViewController: UIViewController, StoryboardLoadable {
     private func reloadData() {
         collectionView.isHidden = dataModel.album == nil
         collectionView.reloadData()
+        
+        if let isInMyLibrary = dataModel.isInMyLibrary {
+            navigationItem.rightBarButtonItems = isInMyLibrary
+                ? [UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.action, target: self, action: #selector(removeAlbum))]
+                : [UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(saveAlbum))]
+        }
+        
     }
+    
+    @objc private func saveAlbum() {
+        dataModel.saveAlbumToMyLibrary()
+    }
+    
+    @objc private func removeAlbum() {
+        let dialog = UIAlertController(title: nil, message: "Remove album from your library?", preferredStyle: .actionSheet)
+        dialog.addAction(UIAlertAction(title: "Remove", style: .destructive, handler: { [weak self] _ in
+            self?.dataModel.removeAlbumFromMyLibrary()
+        }))
+        
+        dialog.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(dialog, animated: true, completion: nil)
+    }
+    
 }
 
-extension AlbumViewController: AlbumScreenDataModelDelegate {
+extension AlbumViewController: ScreenDataModelDelegate {
     func dataUpdated() {
         reloadData()
     }

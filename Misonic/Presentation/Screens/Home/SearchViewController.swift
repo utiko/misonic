@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import Reusable
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, StoryboardLoadable {
 
+    static var sourceStoryboard: Storyboard = .home
+    
     var dataModel = SearchScreenDataModel()
     
     @IBOutlet private weak var searchBar: UISearchBar!
@@ -22,6 +25,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        registerCells()
         //navigationItem.titleView = searchBar
         searchBar.layoutIfNeeded()
         searchBar.becomeFirstResponder()
@@ -46,6 +50,10 @@ class SearchViewController: UIViewController {
         
         searchBarWidthConstraint.constant = view.frame.size.width - 50
         navigationItem.titleView?.layoutIfNeeded()
+    }
+    
+    func registerCells() {
+        tableView.register(cellType: SearchResultArtistCell.self)
     }
     
     func setupConstraints() {
@@ -86,9 +94,7 @@ extension SearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultArtistCell") as? SearchResultArtistCell else {
-            fatalError("SearchResultArtistCell not registered")
-        }
+        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: SearchResultArtistCell.self) 
         
         let artist = dataModel.artist(at: indexPath.row)
         cell.configure(with: artist)
@@ -111,12 +117,12 @@ extension SearchViewController: UITableViewDelegate {
 }
 
 extension SearchViewController: SearchScreenDataModelDelegate {
-    func searchResultUpdated() {
+    func dataUpdated() {
         reloadData()
     }
     
     func searchFailure(with errorMessage: String?) {
-        // handle error
+        // TODO: Handle error
     }
 }
 

@@ -10,7 +10,7 @@ import UIKit
 import Reusable
 
 class ArtistViewController: UIViewController, StoryboardLoadable {
-    static var sourceStoryboard: Storyboard = .main
+    static var sourceStoryboard: Storyboard = .media
 
     var dataModel: ArtistScreenDataModel!
     
@@ -22,7 +22,7 @@ class ArtistViewController: UIViewController, StoryboardLoadable {
         super.viewDidLoad()
 
         collectionView.backgroundColor = UIColor.Misonic.background
-        registerNibs()
+        registerCells()
         dataModel.delegate = self
         reloadData()
     }
@@ -33,9 +33,9 @@ class ArtistViewController: UIViewController, StoryboardLoadable {
         dataModel.startLoadingData()
     }
     
-    func registerNibs() {
+    func registerCells() {
         collectionView.register(cellType: ArtistHeaderCell.self)
-        collectionView.register(cellType: ArtistAlbumCell.self)
+        collectionView.register(cellType: AlbumItemCell.self)
         collectionView.register(supplementaryViewType: CollectionSectionHeaderView.self,
                                 ofKind: UICollectionElementKindSectionHeader)
     }
@@ -46,7 +46,7 @@ class ArtistViewController: UIViewController, StoryboardLoadable {
     }
 }
 
-extension ArtistViewController: ArtistScreenDataModelDelegate {
+extension ArtistViewController: ScreenDataModelDelegate {
     func dataUpdated() {
         reloadData()
     }
@@ -75,7 +75,7 @@ extension ArtistViewController: UICollectionViewDataSource {
             return cell
         
         case albumsSection:
-            let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: ArtistAlbumCell.self)
+            let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: AlbumItemCell.self)
             let album = dataModel.albums[indexPath.row]
             cell.configure(with: album)
             return cell
@@ -104,7 +104,7 @@ extension ArtistViewController: UICollectionViewDelegateFlowLayout {
         guard indexPath.section == albumsSection else { return }
         
         let album = dataModel.albums[indexPath.row]
-        let albumDataModel = AlbumScreenDataModel(albumID: album.albumID)
+        let albumDataModel = AlbumScreenDataModel(album: album)
         let vc = AlbumViewController.loadFromStoryboard()
         vc.dataModel = albumDataModel
         navigationController?.pushViewController(vc, animated: true)
@@ -116,7 +116,7 @@ extension ArtistViewController: UICollectionViewDelegateFlowLayout {
             return ArtistHeaderCell.size(for: collectionView)
 
         case albumsSection:
-            return ArtistAlbumCell.size(for: collectionView)
+            return AlbumItemCell.size(for: collectionView)
             
         default:
             return CGSize.zero
