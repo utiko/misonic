@@ -13,7 +13,7 @@ protocol BaseRequestProtocol {
     func httpMethod() -> HTTPMethod
     func apiMethod() -> String
     func parameters() -> [String: Any]
-    func headers() -> [String: String]
+    func headers() -> HTTPHeaders
     func encoding() -> RequestEncoding
     func successCodes() -> [Int]
     
@@ -32,11 +32,11 @@ class APIService {
         
         let requestUrl = baseUrl.appendingPathComponent(versionAPI)
         
-        let req = request(requestUrl,
-                          method: requestItem.httpMethod(),
-                          parameters: requestItem.parameters(),
-                          encoding: requestItem.encoding(),
-                          headers: requestItem.headers())
+        let req = AF.request(requestUrl,
+                             method: requestItem.httpMethod(),
+                             parameters: requestItem.parameters(),
+                             encoding: requestItem.encoding(),
+                             headers: requestItem.headers())
         
         req.responseData { (response) in
             debugPrint("STATUS CODE: \(String(describing: response.response?.statusCode))")

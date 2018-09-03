@@ -72,10 +72,10 @@ class LastFMBaseRequest<T: Decodable>: NSObject, BaseRequestProtocol {
         return URLEncoding.default
     }
     
-    func headers() -> [String: String] {
-        var headers = [String: String]()
-        headers["Accept-Language"] = Locale.current.languageCode ?? "en"
-        headers["Content-Type"] = "application/json"
+    func headers() -> HTTPHeaders {
+        var headers = HTTPHeaders()
+        headers.add(name: "Accept-Language", value: Locale.current.languageCode ?? "en")
+        headers.add(name: "Content-Type", value: "application/json") 
         return headers
     }
     

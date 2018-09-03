@@ -88,6 +88,7 @@
 		3DB1851021198CF5002B6F4D /* ModelConfigurableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelConfigurableCell.swift; sourceTree = "<group>"; };
 		3DB18512211991A6002B6F4D /* CollectionSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionSectionHeaderView.swift; sourceTree = "<group>"; };
 		3DB18514211991AF002B6F4D /* CollectionSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionSectionHeaderView.xib; sourceTree = "<group>"; };
+		3DDF0B5324B09E5B0020FF7B /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		3DF60B472112C46600BD21CB /* Misonic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Misonic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF60B4A2112C46600BD21CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DF60B4C2112C46600BD21CB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -237,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				3DF60B4A2112C46600BD21CB /* AppDelegate.swift */,
+				3DF60B592112C46700BD21CB /* Info.plist */,
 				3DFE4ADC2115A0B800B9D2F2 /* Configuration */,
 				3DFE4AD821159D1900B9D2F2 /* Services */,
 				3DFE4AE82115CE1800B9D2F2 /* Entity */,
@@ -245,7 +247,6 @@
 				3DB18504211980E4002B6F4D /* Constants */,
 				3DF60B542112C46700BD21CB /* Assets.xcassets */,
 				3DF60B562112C46700BD21CB /* LaunchScreen.storyboard */,
-				3DF60B592112C46700BD21CB /* Info.plist */,
 			);
 			path = Misonic;
 			sourceTree = "<group>";
@@ -319,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				3DFE4ADD2115A0CA00B9D2F2 /* NetworkingConfiguration.swift */,
+				3DDF0B5324B09E5B0020FF7B /* Production.xcconfig */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -376,7 +378,6 @@
 				3DF60B442112C46600BD21CB /* Frameworks */,
 				3DF60B452112C46600BD21CB /* Resources */,
 				1F17791CE8FF3596CC5E21B2 /* [CP] Embed Pods Frameworks */,
-				EE326828E9E1A485C779172A /* [CP] Copy Pods Resources */,
 				3DFE4ADF2115A32600B9D2F2 /* ShellScript */,
 			);
 			buildRules = (
@@ -447,25 +448,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Misonic/Pods-Misonic-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Misonic/Pods-Misonic-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reusable.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Misonic/Pods-Misonic-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Misonic/Pods-Misonic-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Misonic/Pods-Misonic-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		1F86F7F1E0DE68A47202832A /* [CP] Check Pods Manifest.lock */ = {
@@ -498,21 +490,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
-		};
-		EE326828E9E1A485C779172A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Misonic/Pods-Misonic-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -587,6 +564,7 @@
 /* Begin XCBuildConfiguration section */
 		3DF60B5A2112C46700BD21CB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DDF0B5324B09E5B0020FF7B /* Production.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -647,6 +625,7 @@
 		};
 		3DF60B5B2112C46700BD21CB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DDF0B5324B09E5B0020FF7B /* Production.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

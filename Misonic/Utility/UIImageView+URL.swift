@@ -17,7 +17,7 @@ extension UIImageView {
         }
         
         let transition: UIImageView.ImageTransition = animated ? .crossDissolve(0.2) : .noTransition
-        af_setImage(withURL: url, imageTransition: transition, runImageTransitionIfCached: false, completion: { _ in
+        af.setImage(withURL: url, imageTransition: transition, runImageTransitionIfCached: false, completion: { _ in
             
         })
         

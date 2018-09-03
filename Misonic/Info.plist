@@ -41,5 +41,13 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>ServerProtocol</key>
+	<string>$(ServerProtocol)</string>
+	<key>BaseServerUrl</key>
+	<string>$(BaseServerUrl)</string>
+	<key>ApiKey</key>
+	<string>$(ApiKey)</string>
+	<key>SharedSecret</key>
+	<string>$(SharedSecret)</string>
 </dict>
 </plist>

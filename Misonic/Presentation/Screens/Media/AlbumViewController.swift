@@ -48,22 +48,34 @@ class AlbumViewController: UIViewController, StoryboardLoadable {
         collectionView.isHidden = dataModel.album == nil
         collectionView.reloadData()
         
-        if let isInMyLibrary = dataModel.isInMyLibrary {
-            navigationItem.rightBarButtonItems = isInMyLibrary
-                ? [UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.action, target: self, action: #selector(removeAlbum))]
-                : [UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(saveAlbum))]
+        var buttons = [UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.action, target: self, action: #selector(options))]
+        if dataModel.isInMyLibrary == false {
+            buttons.append(UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(saveAlbum)))
         }
         
+        navigationItem.rightBarButtonItems = buttons
     }
     
     @objc private func saveAlbum() {
         dataModel.saveAlbumToMyLibrary()
     }
     
-    @objc private func removeAlbum() {
-        let dialog = UIAlertController(title: nil, message: "Remove album from your library?", preferredStyle: .actionSheet)
-        dialog.addAction(UIAlertAction(title: "Remove", style: .destructive, handler: { [weak self] _ in
-            self?.dataModel.removeAlbumFromMyLibrary()
+    @objc private func options() {
+        let dialog = UIAlertController(title: "Options", message: nil, preferredStyle: .actionSheet)
+
+        if dataModel.isInMyLibrary == true {
+            dialog.addAction(UIAlertAction(title: "Remove from library", style: .destructive, handler: { [weak self] _ in
+                self?.dataModel.removeAlbumFromMyLibrary()
+            }))
+        }
+        
+        dialog.addAction(UIAlertAction(title: "View artist", style: .default, handler: { [weak self] _ in
+            guard let artistID = self?.dataModel.album?.artist.artistID else { return }
+            
+            let screenModel = ArtistScreenDataModel(artistID: artistID)
+            let vc = ArtistViewController.loadFromStoryboard()
+            vc.dataModel = screenModel
+            self?.navigationController?.pushViewController(vc, animated: true)
         }))
         
         dialog.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))

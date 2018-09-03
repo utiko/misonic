@@ -1,0 +1,16 @@
+//
+//  Production.xcconfig
+//  Misonic
+//
+//  Created by Kostia Kolesnyk on 04.07.2020.
+//  Copyright © 2020 Kostia Kolesnyk. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+ServerProtocol     = https
+BaseServerUrl     = ws.audioscrobbler.com
+ApiKey           = [last.fm API KEY]
+SharedSecret       = [last.fm SHARED SECRET]
+
