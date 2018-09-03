@@ -17,6 +17,8 @@ class HomeViewController: UIViewController {
     
     private var dataModel = HomeScreenDataModel()
     
+    private var selectedAlbumIndexPath: IndexPath?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,6 +50,23 @@ extension HomeViewController: ScreenDataModelDelegate {
         emptyStateView.isHidden = dataModel.albumGroups.count > 0
         collectionView.isHidden = dataModel.albumGroups.count == 0
         collectionView.reloadData()
+    }
+}
+
+extension HomeViewController: TransitionImageAnimationing {
+    func animatableImageView(for transitionType: TransitionImageAnimation.TransitionType) -> UIImageView? {
+        switch transitionType {
+        case .child:
+            if let indexPath = selectedAlbumIndexPath,
+                let cell = collectionView.cellForItem(at: indexPath) as? AlbumItemCell {
+                return cell.albumImageView
+            }
+            return nil
+
+        case .parent:
+            return nil
+            
+        }
     }
 }
 
@@ -85,6 +104,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // Prepare imageView for transition
+        selectedAlbumIndexPath = indexPath
+        
+        // Open album
         let album = dataModel.albumGroups[indexPath.section].albums[indexPath.item]
         let albumDataModel = AlbumScreenDataModel(album: album)
         let vc = AlbumViewController.loadFromStoryboard()

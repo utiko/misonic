@@ -19,6 +19,8 @@
 		3D161FAF211A3AC100F192E8 /* AlbumHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D161FAD211A3AC100F192E8 /* AlbumHeaderCell.xib */; };
 		3D161FB2211A464000F192E8 /* AlbumTrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D161FB0211A464000F192E8 /* AlbumTrackCell.swift */; };
 		3D161FB3211A464000F192E8 /* AlbumTrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D161FB1211A464000F192E8 /* AlbumTrackCell.xib */; };
+		3D2F742A213D32CB00F92DC8 /* MainNavigationTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F7429213D32CB00F92DC8 /* MainNavigationTransition.swift */; };
+		3D2F742C213D337B00F92DC8 /* UIView+OriginUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F742B213D337B00F92DC8 /* UIView+OriginUtils.swift */; };
 		3DB184F22118A0BC002B6F4D /* ArtistScreenDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB184F12118A0BC002B6F4D /* ArtistScreenDataModel.swift */; };
 		3DB184F42118A36B002B6F4D /* GetArtistInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB184F32118A36B002B6F4D /* GetArtistInfoRequest.swift */; };
 		3DB184F62118BFBD002B6F4D /* GetArtistAlbumsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB184F52118BFBD002B6F4D /* GetArtistAlbumsRequest.swift */; };
@@ -70,6 +72,8 @@
 		3D161FAD211A3AC100F192E8 /* AlbumHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumHeaderCell.xib; sourceTree = "<group>"; };
 		3D161FB0211A464000F192E8 /* AlbumTrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTrackCell.swift; sourceTree = "<group>"; };
 		3D161FB1211A464000F192E8 /* AlbumTrackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumTrackCell.xib; sourceTree = "<group>"; };
+		3D2F7429213D32CB00F92DC8 /* MainNavigationTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationTransition.swift; sourceTree = "<group>"; };
+		3D2F742B213D337B00F92DC8 /* UIView+OriginUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+OriginUtils.swift"; sourceTree = "<group>"; };
 		3DB184F12118A0BC002B6F4D /* ArtistScreenDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistScreenDataModel.swift; sourceTree = "<group>"; };
 		3DB184F32118A36B002B6F4D /* GetArtistInfoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetArtistInfoRequest.swift; sourceTree = "<group>"; };
 		3DB184F52118BFBD002B6F4D /* GetArtistAlbumsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetArtistAlbumsRequest.swift; sourceTree = "<group>"; };
@@ -148,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				3D161FA1211A255900F192E8 /* UIImageView+URL.swift */,
+				3D2F742B213D337B00F92DC8 /* UIView+OriginUtils.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				3DFE4AD52112D3CC00B9D2F2 /* NavigationController.swift */,
+				3D2F7429213D32CB00F92DC8 /* MainNavigationTransition.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -522,6 +528,7 @@
 				3D161FA2211A255900F192E8 /* UIImageView+URL.swift in Sources */,
 				3DFA81AB213C78E000B260B5 /* HomeScreenDataModel.swift in Sources */,
 				3D161FAB211A335900F192E8 /* AlbumTrack.swift in Sources */,
+				3D2F742A213D32CB00F92DC8 /* MainNavigationTransition.swift in Sources */,
 				3DFE4AE72115CD0C00B9D2F2 /* DatabaseProvider.swift in Sources */,
 				3DFE4ADE2115A0CA00B9D2F2 /* NetworkingConfiguration.swift in Sources */,
 				3DB184FB2118C8C4002B6F4D /* StoryboardLoadable.swift in Sources */,
@@ -548,6 +555,7 @@
 				3DB18513211991A6002B6F4D /* CollectionSectionHeaderView.swift in Sources */,
 				3D161FA9211A2F1600F192E8 /* GetAlbumInfoRequest.swift in Sources */,
 				3DFE4AEC2115CE5900B9D2F2 /* Image.swift in Sources */,
+				3D2F742C213D337B00F92DC8 /* UIView+OriginUtils.swift in Sources */,
 				3DFE4AF7211659C800B9D2F2 /* SearchScreenDataModel.swift in Sources */,
 				3DB1850A211984DA002B6F4D /* GradientView.swift in Sources */,
 				3D161F9B2118093D00F192E8 /* ArtistViewController.swift in Sources */,
@@ -697,13 +705,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2N6B529U6S;
+				DEVELOPMENT_TEAM = Q2D28E8C25;
 				INFOPLIST_FILE = Misonic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.utiko.Misonic;
+				PRODUCT_BUNDLE_IDENTIFIER = net.utiko.dev.Misonic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -716,13 +724,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2N6B529U6S;
+				DEVELOPMENT_TEAM = Q2D28E8C25;
 				INFOPLIST_FILE = Misonic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.utiko.Misonic;
+				PRODUCT_BUNDLE_IDENTIFIER = net.utiko.dev.Misonic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;

@@ -14,7 +14,9 @@ class ArtistImageView: UIImageView {
         
         layer.cornerRadius = frame.size.width / 2
         layer.borderColor = UIColor.Misonic.orange.cgColor
-        layer.borderWidth = 5
+        var borderWidth = frame.size.width / 36
+        if borderWidth < 2 { borderWidth = 2 }
+        layer.borderWidth = borderWidth
         layer.masksToBounds = true
     }
 }

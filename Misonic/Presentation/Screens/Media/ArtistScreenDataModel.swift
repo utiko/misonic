@@ -18,7 +18,12 @@ class ArtistScreenDataModel {
     init(artistID: String) {
         self.artistID = artistID
     }
-    
+
+    init(artist: Artist) {
+        self.artist = artist
+        self.artistID = artist.artistID
+    }
+
     func startLoadingData() {
         getArtistInfo()
     }

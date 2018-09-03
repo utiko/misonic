@@ -13,21 +13,20 @@ class ArtistHeaderCell: UICollectionViewCell, NibReusable, ModelConfigurableCell
     
     typealias ModelType = Artist
     
-    @IBOutlet private weak var artistImageView: UIImageView!
+    @IBOutlet private(set) weak var artistImageView: UIImageView!
     @IBOutlet private weak var artistNameLabel: UILabel!
     @IBOutlet private weak var listenersCountLabel: UILabel!
     
     func configure(with model: Artist) {
         artistNameLabel.text = model.name
         
-        if let stats = model.stats, stats.listeners.decoded > 0 {
-            listenersCountLabel.text = "\(stats.listeners.decoded) listeners"
-            listenersCountLabel.isHidden = false
+        if model.listeners > 0 {
+            listenersCountLabel.text = "\(model.listeners) listeners"
         } else {
             listenersCountLabel.isHidden = true
         }
         
-        artistImageView.setImage(with: model.images.imageUrl(forSize: .extralarge))
+        artistImageView.setImage(with: model.images.imageUrl(forSize: .large))
     }
     
     func updateParalax(forPosition position: CGFloat) {

@@ -20,6 +20,7 @@ class SearchViewController: UIViewController, StoryboardLoadable {
 
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var emptyStateView: UIView!
+    private var selectedArtistIndexPath: IndexPath?
     
     // MARK: - View lifecycle
     override func viewDidLoad() {
@@ -84,6 +85,23 @@ class SearchViewController: UIViewController, StoryboardLoadable {
     }
 }
 
+extension SearchViewController: TransitionImageAnimationing {
+    func animatableImageView(for transitionType: TransitionImageAnimation.TransitionType) -> UIImageView? {
+        switch transitionType {
+        case .child:
+            if let indexPath = selectedArtistIndexPath,
+                let cell = tableView.cellForRow(at: indexPath) as? SearchResultArtistCell {
+                return cell.artistImageView
+            }
+            return nil
+            
+        case .parent:
+            return nil
+            
+        }
+    }
+}
+
 extension SearchViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -94,7 +112,7 @@ extension SearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: SearchResultArtistCell.self) 
+        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: SearchResultArtistCell.self)
         
         let artist = dataModel.artist(at: indexPath.row)
         cell.configure(with: artist)
@@ -106,10 +124,11 @@ extension SearchViewController: UITableViewDataSource {
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         searchBar.resignFirstResponder()
+        selectedArtistIndexPath = indexPath
         
         tableView.deselectRow(at: indexPath, animated: true)
         let artist = dataModel.artist(at: indexPath.row)
-        let screenModel = ArtistScreenDataModel(artistID: artist.artistID)
+        let screenModel = ArtistScreenDataModel(artist: artist)
         let vc = ArtistViewController.loadFromStoryboard()
         vc.dataModel = screenModel
         navigationController?.pushViewController(vc, animated: true)

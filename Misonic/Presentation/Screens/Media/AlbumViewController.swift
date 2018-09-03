@@ -19,6 +19,8 @@ class AlbumViewController: UIViewController, StoryboardLoadable {
     private let headerSection = 0
     private let tracksSection = 1
     
+    private weak var albumImageView: UIImageView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
      
@@ -99,6 +101,7 @@ extension AlbumViewController: UICollectionViewDataSource {
         case headerSection:
             let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: AlbumHeaderCell.self)
             cell.configure(with: album)
+            albumImageView = cell.albumImageView
             return cell
             
         case tracksSection:
@@ -121,6 +124,17 @@ extension AlbumViewController: UICollectionViewDataSource {
             
         default:
             return UICollectionReusableView(frame: CGRect.zero)
+        }
+    }
+}
+
+extension AlbumViewController: TransitionImageAnimationing {
+    func animatableImageView(for transitionType: TransitionImageAnimation.TransitionType) -> UIImageView? {
+        switch transitionType {
+        case .child:
+            return nil
+        case .parent:
+            return albumImageView
         }
     }
 }

@@ -13,7 +13,7 @@ class AlbumItemCell: UICollectionViewCell, NibReusable, ModelConfigurableCell, C
     
     typealias ModelType = Album
 
-    @IBOutlet private weak var albumImageView: UIImageView!
+    @IBOutlet private(set) weak var albumImageView: UIImageView!
     @IBOutlet private weak var albumTitleLabel: UILabel!
     
     override func awakeFromNib() {
