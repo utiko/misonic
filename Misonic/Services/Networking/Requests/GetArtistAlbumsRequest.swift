@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GetArtistAlbumsRequest: BaseRequest <GetArtistAlbumsResponse> {
+class GetArtistAlbumsRequest: LastFMBaseRequest <GetArtistAlbumsResponse> {
     
     var artistID: String = ""
     

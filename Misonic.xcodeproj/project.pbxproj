@@ -45,7 +45,7 @@
 		3DFE4AD62112D3CC00B9D2F2 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE4AD52112D3CC00B9D2F2 /* NavigationController.swift */; };
 		3DFE4ADB2115A00E00B9D2F2 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE4ADA2115A00E00B9D2F2 /* APIService.swift */; };
 		3DFE4ADE2115A0CA00B9D2F2 /* NetworkingConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE4ADD2115A0CA00B9D2F2 /* NetworkingConfiguration.swift */; };
-		3DFE4AE12115A9DF00B9D2F2 /* BaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE4AE02115A9DF00B9D2F2 /* BaseRequest.swift */; };
+		3DFE4AE12115A9DF00B9D2F2 /* LastFMBaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE4AE02115A9DF00B9D2F2 /* LastFMBaseRequest.swift */; };
 		3DFE4AE42115B27D00B9D2F2 /* ArtistSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE4AE32115B27D00B9D2F2 /* ArtistSearchRequest.swift */; };
 		3DFE4AE72115CD0C00B9D2F2 /* DatabaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE4AE62115CD0C00B9D2F2 /* DatabaseProvider.swift */; };
 		3DFE4AEA2115CE5100B9D2F2 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE4AE92115CE5100B9D2F2 /* Artist.swift */; };
@@ -98,7 +98,7 @@
 		3DFE4AD52112D3CC00B9D2F2 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		3DFE4ADA2115A00E00B9D2F2 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		3DFE4ADD2115A0CA00B9D2F2 /* NetworkingConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingConfiguration.swift; sourceTree = "<group>"; };
-		3DFE4AE02115A9DF00B9D2F2 /* BaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRequest.swift; sourceTree = "<group>"; };
+		3DFE4AE02115A9DF00B9D2F2 /* LastFMBaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastFMBaseRequest.swift; sourceTree = "<group>"; };
 		3DFE4AE32115B27D00B9D2F2 /* ArtistSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistSearchRequest.swift; sourceTree = "<group>"; };
 		3DFE4AE62115CD0C00B9D2F2 /* DatabaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProvider.swift; sourceTree = "<group>"; };
 		3DFE4AE92115CE5100B9D2F2 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
@@ -320,7 +320,7 @@
 		3DFE4AE22115B24F00B9D2F2 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
-				3DFE4AE02115A9DF00B9D2F2 /* BaseRequest.swift */,
+				3DFE4AE02115A9DF00B9D2F2 /* LastFMBaseRequest.swift */,
 				3DFE4AE32115B27D00B9D2F2 /* ArtistSearchRequest.swift */,
 				3DB184F32118A36B002B6F4D /* GetArtistInfoRequest.swift */,
 				3DB184F52118BFBD002B6F4D /* GetArtistAlbumsRequest.swift */,
@@ -515,8 +515,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DFE4AE12115A9DF00B9D2F2 /* BaseRequest.swift in Sources */,
 				3DFA81AF213C7A9500B260B5 /* ScreenDataModel.swift in Sources */,
+				3DFE4AE12115A9DF00B9D2F2 /* LastFMBaseRequest.swift in Sources */,
 				3D161F9E21180AA100F192E8 /* ArtistHeaderCell.swift in Sources */,
 				3D161FA7211A2DDB00F192E8 /* AlbumScreenDataModel.swift in Sources */,
 				3D161FA2211A255900F192E8 /* UIImageView+URL.swift in Sources */,

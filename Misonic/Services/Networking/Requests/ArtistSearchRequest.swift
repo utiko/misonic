@@ -10,7 +10,7 @@ import Foundation
 import Realm
 import RealmSwift
 
-class ArtistSearchRequest: BaseRequest <ArtistSearchResponse> {
+class ArtistSearchRequest: LastFMBaseRequest <ArtistSearchResponse> {
     
     var searchQuery: String = ""
     
