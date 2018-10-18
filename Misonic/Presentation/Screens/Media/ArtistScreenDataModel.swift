@@ -8,12 +8,8 @@
 
 import Foundation
 
-protocol ArtistScreenDataModelDelegate: class {
-    func dataUpdated()
-}
-
 class ArtistScreenDataModel {
-    weak var delegate: ArtistScreenDataModelDelegate?
+    weak var delegate: ScreenDataModelDelegate?
     
     public var artistID: String
     public private(set) var artist: Artist?
@@ -22,7 +18,12 @@ class ArtistScreenDataModel {
     init(artistID: String) {
         self.artistID = artistID
     }
-    
+
+    init(artist: Artist) {
+        self.artist = artist
+        self.artistID = artist.artistID
+    }
+
     func startLoadingData() {
         getArtistInfo()
     }

@@ -8,11 +8,12 @@
 
 import UIKit
 import AlamofireImage
+import Reusable
 
-class SearchResultArtistCell: UITableViewCell, ModelConfigurableCell {
+class SearchResultArtistCell: UITableViewCell, NibReusable, ModelConfigurableCell {
     typealias ModelType = Artist
     
-    @IBOutlet private weak var artistImageView: UIImageView!
+    @IBOutlet private(set) weak var artistImageView: UIImageView!
     @IBOutlet private weak var artistNameLabel: UILabel!
     @IBOutlet private weak var artistListenersLabel: UILabel!
 
@@ -24,7 +25,7 @@ class SearchResultArtistCell: UITableViewCell, ModelConfigurableCell {
     func configure(with model: Artist) {
         artistNameLabel.text = model.name
         artistListenersLabel.text = "\(model.listeners) listeners"
-        artistImageView.setImage(with: model.images.imageUrl(forSize: .medium))
+        artistImageView.setImage(with: model.images.imageUrl(forSize: .large))
     }
     
     override func awakeFromNib() {

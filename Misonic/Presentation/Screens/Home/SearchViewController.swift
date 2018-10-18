@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import Reusable
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, StoryboardLoadable {
 
+    static var sourceStoryboard: Storyboard = .home
+    
     var dataModel = SearchScreenDataModel()
     
     @IBOutlet private weak var searchBar: UISearchBar!
@@ -17,11 +20,13 @@ class SearchViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var emptyStateView: UIView!
+    private var selectedArtistIndexPath: IndexPath?
     
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        registerCells()
         //navigationItem.titleView = searchBar
         searchBar.layoutIfNeeded()
         searchBar.becomeFirstResponder()
@@ -46,6 +51,10 @@ class SearchViewController: UIViewController {
         
         searchBarWidthConstraint.constant = view.frame.size.width - 50
         navigationItem.titleView?.layoutIfNeeded()
+    }
+    
+    func registerCells() {
+        tableView.register(cellType: SearchResultArtistCell.self)
     }
     
     func setupConstraints() {
@@ -76,6 +85,23 @@ class SearchViewController: UIViewController {
     }
 }
 
+extension SearchViewController: TransitionImageAnimationing {
+    func animatableImageView(for transitionType: TransitionImageAnimation.TransitionType) -> UIImageView? {
+        switch transitionType {
+        case .child:
+            if let indexPath = selectedArtistIndexPath,
+                let cell = tableView.cellForRow(at: indexPath) as? SearchResultArtistCell {
+                return cell.artistImageView
+            }
+            return nil
+            
+        case .parent:
+            return nil
+            
+        }
+    }
+}
+
 extension SearchViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -86,9 +112,7 @@ extension SearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultArtistCell") as? SearchResultArtistCell else {
-            fatalError("SearchResultArtistCell not registered")
-        }
+        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: SearchResultArtistCell.self)
         
         let artist = dataModel.artist(at: indexPath.row)
         cell.configure(with: artist)
@@ -100,10 +124,11 @@ extension SearchViewController: UITableViewDataSource {
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         searchBar.resignFirstResponder()
+        selectedArtistIndexPath = indexPath
         
         tableView.deselectRow(at: indexPath, animated: true)
         let artist = dataModel.artist(at: indexPath.row)
-        let screenModel = ArtistScreenDataModel(artistID: artist.artistID)
+        let screenModel = ArtistScreenDataModel(artist: artist)
         let vc = ArtistViewController.loadFromStoryboard()
         vc.dataModel = screenModel
         navigationController?.pushViewController(vc, animated: true)
@@ -111,12 +136,12 @@ extension SearchViewController: UITableViewDelegate {
 }
 
 extension SearchViewController: SearchScreenDataModelDelegate {
-    func searchResultUpdated() {
+    func dataUpdated() {
         reloadData()
     }
     
     func searchFailure(with errorMessage: String?) {
-        // handle error
+        // TODO: Handle error
     }
 }
 

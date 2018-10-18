@@ -10,19 +10,20 @@ import UIKit
 import Reusable
 
 class ArtistViewController: UIViewController, StoryboardLoadable {
-    static var sourceStoryboard: Storyboard = .main
+    static var sourceStoryboard: Storyboard = .media
 
     var dataModel: ArtistScreenDataModel!
     
     @IBOutlet private weak var collectionView: UICollectionView!
     private let headerSection = 0
     private let albumsSection = 1
+    private var selectedAlbumIndexPath: IndexPath?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         collectionView.backgroundColor = UIColor.Misonic.background
-        registerNibs()
+        registerCells()
         dataModel.delegate = self
         reloadData()
     }
@@ -33,11 +34,11 @@ class ArtistViewController: UIViewController, StoryboardLoadable {
         dataModel.startLoadingData()
     }
     
-    func registerNibs() {
+    func registerCells() {
         collectionView.register(cellType: ArtistHeaderCell.self)
-        collectionView.register(cellType: ArtistAlbumCell.self)
+        collectionView.register(cellType: AlbumItemCell.self)
         collectionView.register(supplementaryViewType: CollectionSectionHeaderView.self,
-                                ofKind: UICollectionElementKindSectionHeader)
+                                ofKind: UICollectionView.elementKindSectionHeader)
     }
     
     func reloadData() {
@@ -46,9 +47,29 @@ class ArtistViewController: UIViewController, StoryboardLoadable {
     }
 }
 
-extension ArtistViewController: ArtistScreenDataModelDelegate {
+extension ArtistViewController: ScreenDataModelDelegate {
     func dataUpdated() {
         reloadData()
+    }
+}
+
+extension ArtistViewController: TransitionImageAnimationing {
+    func animatableImageView(for transitionType: TransitionImageAnimation.TransitionType) -> UIImageView? {
+        switch transitionType {
+        case .child:
+            if let indexPath = selectedAlbumIndexPath,
+                let cell = collectionView.cellForItem(at: indexPath) as? AlbumItemCell {
+                return cell.albumImageView
+            }
+            return nil
+            
+        case .parent:
+            if let cell = collectionView.cellForItem(at: IndexPath(item: 0, section: headerSection)) as? ArtistHeaderCell {
+                return cell.artistImageView
+            }
+            return nil
+            
+        }
     }
 }
 
@@ -75,7 +96,7 @@ extension ArtistViewController: UICollectionViewDataSource {
             return cell
         
         case albumsSection:
-            let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: ArtistAlbumCell.self)
+            let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: AlbumItemCell.self)
             let album = dataModel.albums[indexPath.row]
             cell.configure(with: album)
             return cell
@@ -103,8 +124,12 @@ extension ArtistViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard indexPath.section == albumsSection else { return }
         
+        // Prepare imageView for transition
+        selectedAlbumIndexPath = indexPath
+        
+        // Open album
         let album = dataModel.albums[indexPath.row]
-        let albumDataModel = AlbumScreenDataModel(albumID: album.albumID)
+        let albumDataModel = AlbumScreenDataModel(album: album)
         let vc = AlbumViewController.loadFromStoryboard()
         vc.dataModel = albumDataModel
         navigationController?.pushViewController(vc, animated: true)
@@ -116,7 +141,7 @@ extension ArtistViewController: UICollectionViewDelegateFlowLayout {
             return ArtistHeaderCell.size(for: collectionView)
 
         case albumsSection:
-            return ArtistAlbumCell.size(for: collectionView)
+            return AlbumItemCell.size(for: collectionView)
             
         default:
             return CGSize.zero

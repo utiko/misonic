@@ -10,7 +10,8 @@ import UIKit
 import Reusable
 
 class AlbumViewController: UIViewController, StoryboardLoadable {
-    static var sourceStoryboard: Storyboard = .main
+
+    static var sourceStoryboard: Storyboard = .media
 
     var dataModel: AlbumScreenDataModel!
     
@@ -18,29 +19,72 @@ class AlbumViewController: UIViewController, StoryboardLoadable {
     private let headerSection = 0
     private let tracksSection = 1
     
+    private weak var albumImageView: UIImageView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
      
-        registerNibs()
+        registerCells()
         
         dataModel.delegate = self
         dataModel.startLoadingData()
+
+        collectionView.isHidden = dataModel.album == nil
     }
     
-    func registerNibs() {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
+    
+    func registerCells() {
         collectionView.register(cellType: AlbumHeaderCell.self)
         collectionView.register(cellType: AlbumTrackCell.self)
         collectionView.register(supplementaryViewType: CollectionSectionHeaderView.self,
-                                ofKind: UICollectionElementKindSectionHeader)
+                                ofKind: UICollectionView.elementKindSectionHeader)
     }
     
     private func reloadData() {
         collectionView.isHidden = dataModel.album == nil
         collectionView.reloadData()
+        
+        var buttons = [UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.action, target: self, action: #selector(options))]
+        if dataModel.isInMyLibrary == false {
+            buttons.append(UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(saveAlbum)))
+        }
+        
+        navigationItem.rightBarButtonItems = buttons
     }
+    
+    @objc private func saveAlbum() {
+        dataModel.saveAlbumToMyLibrary()
+    }
+    
+    @objc private func options() {
+        let dialog = UIAlertController(title: "Options", message: nil, preferredStyle: .actionSheet)
+
+        if dataModel.isInMyLibrary == true {
+            dialog.addAction(UIAlertAction(title: "Remove from library", style: .destructive, handler: { [weak self] _ in
+                self?.dataModel.removeAlbumFromMyLibrary()
+            }))
+        }
+        
+        dialog.addAction(UIAlertAction(title: "View artist", style: .default, handler: { [weak self] _ in
+            guard let artistID = self?.dataModel.album?.artist.artistID else { return }
+            
+            let screenModel = ArtistScreenDataModel(artistID: artistID)
+            let vc = ArtistViewController.loadFromStoryboard()
+            vc.dataModel = screenModel
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }))
+        
+        dialog.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(dialog, animated: true, completion: nil)
+    }
+    
 }
 
-extension AlbumViewController: AlbumScreenDataModelDelegate {
+extension AlbumViewController: ScreenDataModelDelegate {
     func dataUpdated() {
         reloadData()
     }
@@ -69,6 +113,7 @@ extension AlbumViewController: UICollectionViewDataSource {
         case headerSection:
             let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: AlbumHeaderCell.self)
             cell.configure(with: album)
+            albumImageView = cell.albumImageView
             return cell
             
         case tracksSection:
@@ -91,6 +136,17 @@ extension AlbumViewController: UICollectionViewDataSource {
             
         default:
             return UICollectionReusableView(frame: CGRect.zero)
+        }
+    }
+}
+
+extension AlbumViewController: TransitionImageAnimationing {
+    func animatableImageView(for transitionType: TransitionImageAnimation.TransitionType) -> UIImageView? {
+        switch transitionType {
+        case .child:
+            return nil
+        case .parent:
+            return albumImageView
         }
     }
 }

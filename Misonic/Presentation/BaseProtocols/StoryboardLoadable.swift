@@ -28,7 +28,8 @@ extension StoryboardLoadable where Self: UIViewController {
 }
 
 public enum Storyboard: String {
-    case main = "Main"
+    case home = "Home"
+    case media = "Media"
 }
 
 extension UIStoryboard {

@@ -37,13 +37,13 @@ struct Artist: Decodable, ManagedConvertable {
         artistID = try map.decode(String.self, forKey: .artistID)
         name = (try? map.decode(String.self, forKey: .name)) ?? ""
         
+        stats = try? map.decode(ArtistStats.self, forKey: .stats)
         if let valueStr = try? map.decode(String.self, forKey: .listeners), let value = Int(valueStr) {
             listeners = value
         } else {
-            listeners = 0
+            listeners = stats?.listeners.decoded ?? 0
         }
         
-        stats = try? map.decode(ArtistStats.self, forKey: .stats)
         images = (try? map.decode(ImageList.self, forKey: .images)) ?? []
     }
     
@@ -58,7 +58,7 @@ struct Artist: Decodable, ManagedConvertable {
         let managed = ArtistManaged()
         managed.artistID = artistID
         managed.name = name
-        managed.listeners = 0
+        managed.listeners = listeners
         managed.images = images.managedList()
         return managed
     }

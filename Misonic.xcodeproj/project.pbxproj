@@ -19,6 +19,9 @@
 		3D161FAF211A3AC100F192E8 /* AlbumHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D161FAD211A3AC100F192E8 /* AlbumHeaderCell.xib */; };
 		3D161FB2211A464000F192E8 /* AlbumTrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D161FB0211A464000F192E8 /* AlbumTrackCell.swift */; };
 		3D161FB3211A464000F192E8 /* AlbumTrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D161FB1211A464000F192E8 /* AlbumTrackCell.xib */; };
+		3D2F742A213D32CB00F92DC8 /* MainNavigationTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F7429213D32CB00F92DC8 /* MainNavigationTransition.swift */; };
+		3D2F742C213D337B00F92DC8 /* UIView+OriginUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F742B213D337B00F92DC8 /* UIView+OriginUtils.swift */; };
+		3DAADC8C216E2C3D00DE778C /* MisonicUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAADC8B216E2C3D00DE778C /* MisonicUITests.swift */; };
 		3DB184F22118A0BC002B6F4D /* ArtistScreenDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB184F12118A0BC002B6F4D /* ArtistScreenDataModel.swift */; };
 		3DB184F42118A36B002B6F4D /* GetArtistInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB184F32118A36B002B6F4D /* GetArtistInfoRequest.swift */; };
 		3DB184F62118BFBD002B6F4D /* GetArtistAlbumsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB184F52118BFBD002B6F4D /* GetArtistAlbumsRequest.swift */; };
@@ -28,17 +31,20 @@
 		3DB18506211980FF002B6F4D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB18505211980FF002B6F4D /* Colors.swift */; };
 		3DB185082119833C002B6F4D /* ArtistImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB185072119833C002B6F4D /* ArtistImageView.swift */; };
 		3DB1850A211984DA002B6F4D /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB18509211984DA002B6F4D /* GradientView.swift */; };
-		3DB1850D21198993002B6F4D /* ArtistAlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB1850B21198993002B6F4D /* ArtistAlbumCell.swift */; };
-		3DB1850E21198993002B6F4D /* ArtistAlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB1850C21198993002B6F4D /* ArtistAlbumCell.xib */; };
+		3DB1850D21198993002B6F4D /* AlbumItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB1850B21198993002B6F4D /* AlbumItemCell.swift */; };
+		3DB1850E21198993002B6F4D /* AlbumItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB1850C21198993002B6F4D /* AlbumItemCell.xib */; };
 		3DB1851121198CF5002B6F4D /* ModelConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB1851021198CF5002B6F4D /* ModelConfigurableCell.swift */; };
 		3DB18513211991A6002B6F4D /* CollectionSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB18512211991A6002B6F4D /* CollectionSectionHeaderView.swift */; };
 		3DB18515211991AF002B6F4D /* CollectionSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB18514211991AF002B6F4D /* CollectionSectionHeaderView.xib */; };
-		3DF15CDE2162213500CCDBE4 /* RouteAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF15CDD2162213500CCDBE4 /* RouteAction.swift */; };
 		3DF60B4B2112C46600BD21CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF60B4A2112C46600BD21CB /* AppDelegate.swift */; };
 		3DF60B4D2112C46600BD21CB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF60B4C2112C46600BD21CB /* HomeViewController.swift */; };
-		3DF60B502112C46600BD21CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF60B4E2112C46600BD21CB /* Main.storyboard */; };
+		3DF60B502112C46600BD21CB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF60B4E2112C46600BD21CB /* Home.storyboard */; };
 		3DF60B552112C46700BD21CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF60B542112C46700BD21CB /* Assets.xcassets */; };
 		3DF60B582112C46700BD21CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF60B562112C46700BD21CB /* LaunchScreen.storyboard */; };
+		3DFA81A6213C4BF900B260B5 /* SearchResultArtistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DFA81A5213C4BF900B260B5 /* SearchResultArtistCell.xib */; };
+		3DFA81A9213C786500B260B5 /* Media.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DFA81A8213C786500B260B5 /* Media.storyboard */; };
+		3DFA81AB213C78E000B260B5 /* HomeScreenDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFA81AA213C78E000B260B5 /* HomeScreenDataModel.swift */; };
+		3DFA81AF213C7A9500B260B5 /* ScreenDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFA81AE213C7A9500B260B5 /* ScreenDataModel.swift */; };
 		3DFE4AD62112D3CC00B9D2F2 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE4AD52112D3CC00B9D2F2 /* NavigationController.swift */; };
 		3DFE4ADB2115A00E00B9D2F2 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE4ADA2115A00E00B9D2F2 /* APIService.swift */; };
 		3DFE4ADE2115A0CA00B9D2F2 /* NetworkingConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE4ADD2115A0CA00B9D2F2 /* NetworkingConfiguration.swift */; };
@@ -54,6 +60,16 @@
 		9CC396AA486AF47ECC98548D /* Pods_Misonic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2F880CDEDB0940CB8CDB81 /* Pods_Misonic.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3DAADC8E216E2C3D00DE778C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3DF60B3F2112C46600BD21CB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3DF60B462112C46600BD21CB;
+			remoteInfo = Misonic;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		3D161F9A2118093D00F192E8 /* ArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
 		3D161F9C21180AA100F192E8 /* ArtistHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistHeaderCell.swift; sourceTree = "<group>"; };
@@ -67,6 +83,11 @@
 		3D161FAD211A3AC100F192E8 /* AlbumHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumHeaderCell.xib; sourceTree = "<group>"; };
 		3D161FB0211A464000F192E8 /* AlbumTrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTrackCell.swift; sourceTree = "<group>"; };
 		3D161FB1211A464000F192E8 /* AlbumTrackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumTrackCell.xib; sourceTree = "<group>"; };
+		3D2F7429213D32CB00F92DC8 /* MainNavigationTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationTransition.swift; sourceTree = "<group>"; };
+		3D2F742B213D337B00F92DC8 /* UIView+OriginUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+OriginUtils.swift"; sourceTree = "<group>"; };
+		3DAADC89216E2C3D00DE778C /* MisonicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MisonicUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DAADC8B216E2C3D00DE778C /* MisonicUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MisonicUITests.swift; sourceTree = "<group>"; };
+		3DAADC8D216E2C3D00DE778C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DB184F12118A0BC002B6F4D /* ArtistScreenDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistScreenDataModel.swift; sourceTree = "<group>"; };
 		3DB184F32118A36B002B6F4D /* GetArtistInfoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetArtistInfoRequest.swift; sourceTree = "<group>"; };
 		3DB184F52118BFBD002B6F4D /* GetArtistAlbumsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetArtistAlbumsRequest.swift; sourceTree = "<group>"; };
@@ -76,8 +97,8 @@
 		3DB18505211980FF002B6F4D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		3DB185072119833C002B6F4D /* ArtistImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistImageView.swift; sourceTree = "<group>"; };
 		3DB18509211984DA002B6F4D /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		3DB1850B21198993002B6F4D /* ArtistAlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistAlbumCell.swift; sourceTree = "<group>"; };
-		3DB1850C21198993002B6F4D /* ArtistAlbumCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistAlbumCell.xib; sourceTree = "<group>"; };
+		3DB1850B21198993002B6F4D /* AlbumItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumItemCell.swift; sourceTree = "<group>"; };
+		3DB1850C21198993002B6F4D /* AlbumItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumItemCell.xib; sourceTree = "<group>"; };
 		3DB1851021198CF5002B6F4D /* ModelConfigurableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelConfigurableCell.swift; sourceTree = "<group>"; };
 		3DB18512211991A6002B6F4D /* CollectionSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionSectionHeaderView.swift; sourceTree = "<group>"; };
 		3DB18514211991AF002B6F4D /* CollectionSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionSectionHeaderView.xib; sourceTree = "<group>"; };
@@ -85,10 +106,14 @@
 		3DF60B472112C46600BD21CB /* Misonic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Misonic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF60B4A2112C46600BD21CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DF60B4C2112C46600BD21CB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		3DF60B4F2112C46600BD21CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3DF60B4F2112C46600BD21CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		3DF60B542112C46700BD21CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DF60B572112C46700BD21CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DF60B592112C46700BD21CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DFA81A5213C4BF900B260B5 /* SearchResultArtistCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultArtistCell.xib; sourceTree = "<group>"; };
+		3DFA81A8213C786500B260B5 /* Media.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Media.storyboard; sourceTree = "<group>"; };
+		3DFA81AA213C78E000B260B5 /* HomeScreenDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenDataModel.swift; sourceTree = "<group>"; };
+		3DFA81AE213C7A9500B260B5 /* ScreenDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenDataModel.swift; sourceTree = "<group>"; };
 		3DFE4AD52112D3CC00B9D2F2 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		3DFE4ADA2115A00E00B9D2F2 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		3DFE4ADD2115A0CA00B9D2F2 /* NetworkingConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingConfiguration.swift; sourceTree = "<group>"; };
@@ -107,6 +132,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3DAADC86216E2C3D00DE778C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3DF60B442112C46600BD21CB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -126,52 +158,44 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3D161F992118090800F192E8 /* Artist */ = {
+		3D161F992118090800F192E8 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				3DFA81A8213C786500B260B5 /* Media.storyboard */,
 				3D161F9A2118093D00F192E8 /* ArtistViewController.swift */,
 				3DB184F12118A0BC002B6F4D /* ArtistScreenDataModel.swift */,
-				3D161F9C21180AA100F192E8 /* ArtistHeaderCell.swift */,
-				3D161F9D21180AA100F192E8 /* ArtistHeaderCell.xib */,
-				3DB1850B21198993002B6F4D /* ArtistAlbumCell.swift */,
-				3DB1850C21198993002B6F4D /* ArtistAlbumCell.xib */,
+				3D161FA4211A2D6100F192E8 /* AlbumViewController.swift */,
+				3D161FA6211A2DDB00F192E8 /* AlbumScreenDataModel.swift */,
 			);
-			path = Artist;
+			path = Media;
 			sourceTree = "<group>";
 		};
 		3D161FA0211A253E00F192E8 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
 				3D161FA1211A255900F192E8 /* UIImageView+URL.swift */,
+				3D2F742B213D337B00F92DC8 /* UIView+OriginUtils.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
 		};
-		3D161FA3211A2D3700F192E8 /* Album */ = {
+		3DAADC8A216E2C3D00DE778C /* MisonicUITests */ = {
 			isa = PBXGroup;
 			children = (
-				3D161FA4211A2D6100F192E8 /* AlbumViewController.swift */,
-				3D161FA6211A2DDB00F192E8 /* AlbumScreenDataModel.swift */,
-				3D161FAC211A3AC100F192E8 /* AlbumHeaderCell.swift */,
-				3D161FAD211A3AC100F192E8 /* AlbumHeaderCell.xib */,
-				3D161FB0211A464000F192E8 /* AlbumTrackCell.swift */,
-				3D161FB1211A464000F192E8 /* AlbumTrackCell.xib */,
+				3DAADC8B216E2C3D00DE778C /* MisonicUITests.swift */,
+				3DAADC8D216E2C3D00DE778C /* Info.plist */,
 			);
-			path = Album;
-			sourceTree = "<group>";
-		};
-		3DB184F82118C89F002B6F4D /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				3DB184FA2118C8C4002B6F4D /* StoryboardLoadable.swift */,
-			);
-			path = Base;
+			path = MisonicUITests;
 			sourceTree = "<group>";
 		};
 		3DB184F92118C8AC002B6F4D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				3DF60B4E2112C46600BD21CB /* Home.storyboard */,
 				3DF60B4C2112C46600BD21CB /* HomeViewController.swift */,
+				3DFA81AA213C78E000B260B5 /* HomeScreenDataModel.swift */,
+				3DFE4AF121163E5C00B9D2F2 /* SearchViewController.swift */,
+				3DFE4AF6211659C800B9D2F2 /* SearchScreenDataModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -188,13 +212,8 @@
 		3DB18502211980BE002B6F4D /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				3DF60B4E2112C46600BD21CB /* Main.storyboard */,
-				3DFE4AD52112D3CC00B9D2F2 /* NavigationController.swift */,
-				3DB184F82118C89F002B6F4D /* Base */,
 				3DB184F92118C8AC002B6F4D /* Home */,
-				3DFE4AF3211656BD00B9D2F2 /* Search */,
-				3D161F992118090800F192E8 /* Artist */,
-				3D161FA3211A2D3700F192E8 /* Album */,
+				3D161F992118090800F192E8 /* Media */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -247,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				3DF60B492112C46600BD21CB /* Misonic */,
+				3DAADC8A216E2C3D00DE778C /* MisonicUITests */,
 				3DF60B482112C46600BD21CB /* Products */,
 				BDF2A168D01328CAB4A16851 /* Pods */,
 				12F447EBDBA23962729557D0 /* Frameworks */,
@@ -257,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				3DF60B472112C46600BD21CB /* Misonic.app */,
+				3DAADC89216E2C3D00DE778C /* MisonicUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -268,7 +289,7 @@
 				3DFE4ADC2115A0B800B9D2F2 /* Configuration */,
 				3DFE4AD821159D1900B9D2F2 /* Services */,
 				3DF15CD921621D1800CCDBE4 /* Routing */,
-				3DFE4AE82115CE1800B9D2F2 /* Models */,
+				3DFE4AE82115CE1800B9D2F2 /* Entity */,
 				3DFE4AD72112D42800B9D2F2 /* Presentation */,
 				3D161FA0211A253E00F192E8 /* Utility */,
 				3DB18504211980E4002B6F4D /* Constants */,
@@ -279,10 +300,48 @@
 			path = Misonic;
 			sourceTree = "<group>";
 		};
+		3DFA81A7213C75FA00B260B5 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3DFE4AF4211656F200B9D2F2 /* SearchResultArtistCell.swift */,
+				3DFA81A5213C4BF900B260B5 /* SearchResultArtistCell.xib */,
+				3D161F9C21180AA100F192E8 /* ArtistHeaderCell.swift */,
+				3D161F9D21180AA100F192E8 /* ArtistHeaderCell.xib */,
+				3DB1850B21198993002B6F4D /* AlbumItemCell.swift */,
+				3DB1850C21198993002B6F4D /* AlbumItemCell.xib */,
+				3D161FAC211A3AC100F192E8 /* AlbumHeaderCell.swift */,
+				3D161FAD211A3AC100F192E8 /* AlbumHeaderCell.xib */,
+				3D161FB0211A464000F192E8 /* AlbumTrackCell.swift */,
+				3D161FB1211A464000F192E8 /* AlbumTrackCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		3DFA81AC213C7A5800B260B5 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				3DFE4AD52112D3CC00B9D2F2 /* NavigationController.swift */,
+				3D2F7429213D32CB00F92DC8 /* MainNavigationTransition.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		3DFA81AD213C7A6800B260B5 /* BaseProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				3DB184FA2118C8C4002B6F4D /* StoryboardLoadable.swift */,
+				3DFA81AE213C7A9500B260B5 /* ScreenDataModel.swift */,
+			);
+			path = BaseProtocols;
+			sourceTree = "<group>";
+		};
 		3DFE4AD72112D42800B9D2F2 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				3DFA81AC213C7A5800B260B5 /* Navigation */,
+				3DFA81AD213C7A6800B260B5 /* BaseProtocols */,
 				3DB18502211980BE002B6F4D /* Screens */,
+				3DFA81A7213C75FA00B260B5 /* Cells */,
 				3DB18503211980CD002B6F4D /* Views */,
 			);
 			path = Presentation;
@@ -334,7 +393,7 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
-		3DFE4AE82115CE1800B9D2F2 /* Models */ = {
+		3DFE4AE82115CE1800B9D2F2 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
 				3DB184FD21197E85002B6F4D /* Utilities */,
@@ -343,17 +402,7 @@
 				3D161FAA211A335900F192E8 /* AlbumTrack.swift */,
 				3DFE4AEB2115CE5900B9D2F2 /* Image.swift */,
 			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		3DFE4AF3211656BD00B9D2F2 /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				3DFE4AF121163E5C00B9D2F2 /* SearchViewController.swift */,
-				3DFE4AF6211659C800B9D2F2 /* SearchScreenDataModel.swift */,
-				3DFE4AF4211656F200B9D2F2 /* SearchResultArtistCell.swift */,
-			);
-			path = Search;
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		BDF2A168D01328CAB4A16851 /* Pods */ = {
@@ -368,6 +417,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3DAADC88216E2C3D00DE778C /* MisonicUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DAADC90216E2C3D00DE778C /* Build configuration list for PBXNativeTarget "MisonicUITests" */;
+			buildPhases = (
+				3DAADC85216E2C3D00DE778C /* Sources */,
+				3DAADC86216E2C3D00DE778C /* Frameworks */,
+				3DAADC87216E2C3D00DE778C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3DAADC8F216E2C3D00DE778C /* PBXTargetDependency */,
+			);
+			name = MisonicUITests;
+			productName = MisonicUITests;
+			productReference = 3DAADC89216E2C3D00DE778C /* MisonicUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		3DF60B462112C46600BD21CB /* Misonic */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3DF60B5C2112C46700BD21CB /* Build configuration list for PBXNativeTarget "Misonic" */;
@@ -377,7 +444,6 @@
 				3DF60B442112C46600BD21CB /* Frameworks */,
 				3DF60B452112C46600BD21CB /* Resources */,
 				1F17791CE8FF3596CC5E21B2 /* [CP] Embed Pods Frameworks */,
-				EE326828E9E1A485C779172A /* [CP] Copy Pods Resources */,
 				3DFE4ADF2115A32600B9D2F2 /* ShellScript */,
 			);
 			buildRules = (
@@ -395,10 +461,14 @@
 		3DF60B3F2112C46600BD21CB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0940;
+				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Kostia Kolesnyk";
 				TargetAttributes = {
+					3DAADC88216E2C3D00DE778C = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 3DF60B462112C46600BD21CB;
+					};
 					3DF60B462112C46600BD21CB = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
@@ -418,23 +488,33 @@
 			projectRoot = "";
 			targets = (
 				3DF60B462112C46600BD21CB /* Misonic */,
+				3DAADC88216E2C3D00DE778C /* MisonicUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3DAADC87216E2C3D00DE778C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3DF60B452112C46600BD21CB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3DB18515211991AF002B6F4D /* CollectionSectionHeaderView.xib in Resources */,
+				3DFA81A9213C786500B260B5 /* Media.storyboard in Resources */,
 				3D161FB3211A464000F192E8 /* AlbumTrackCell.xib in Resources */,
 				3DF60B582112C46700BD21CB /* LaunchScreen.storyboard in Resources */,
+				3DFA81A6213C4BF900B260B5 /* SearchResultArtistCell.xib in Resources */,
 				3D161F9F21180AA100F192E8 /* ArtistHeaderCell.xib in Resources */,
 				3DF60B552112C46700BD21CB /* Assets.xcassets in Resources */,
-				3DF60B502112C46600BD21CB /* Main.storyboard in Resources */,
+				3DF60B502112C46600BD21CB /* Home.storyboard in Resources */,
 				3D161FAF211A3AC100F192E8 /* AlbumHeaderCell.xib in Resources */,
-				3DB1850E21198993002B6F4D /* ArtistAlbumCell.xib in Resources */,
+				3DB1850E21198993002B6F4D /* AlbumItemCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,47 +576,42 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
-		};
-		EE326828E9E1A485C779172A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Misonic/Pods-Misonic-resources.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3DAADC85216E2C3D00DE778C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DAADC8C216E2C3D00DE778C /* MisonicUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3DF60B432112C46600BD21CB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DFA81AF213C7A9500B260B5 /* ScreenDataModel.swift in Sources */,
 				3DFE4AE12115A9DF00B9D2F2 /* LastFMBaseRequest.swift in Sources */,
 				3D161F9E21180AA100F192E8 /* ArtistHeaderCell.swift in Sources */,
 				3D161FA7211A2DDB00F192E8 /* AlbumScreenDataModel.swift in Sources */,
 				3D161FA2211A255900F192E8 /* UIImageView+URL.swift in Sources */,
+				3DFA81AB213C78E000B260B5 /* HomeScreenDataModel.swift in Sources */,
 				3D161FAB211A335900F192E8 /* AlbumTrack.swift in Sources */,
+				3D2F742A213D32CB00F92DC8 /* MainNavigationTransition.swift in Sources */,
 				3DFE4AE72115CD0C00B9D2F2 /* DatabaseProvider.swift in Sources */,
 				3DFE4ADE2115A0CA00B9D2F2 /* NetworkingConfiguration.swift in Sources */,
 				3DB184FB2118C8C4002B6F4D /* StoryboardLoadable.swift in Sources */,
 				3D161FAE211A3AC100F192E8 /* AlbumHeaderCell.swift in Sources */,
-				3DF15CDE2162213500CCDBE4 /* RouteAction.swift in Sources */,
 				3D161FB2211A464000F192E8 /* AlbumTrackCell.swift in Sources */,
 				3D161FA5211A2D6100F192E8 /* AlbumViewController.swift in Sources */,
 				3DFE4AEA2115CE5100B9D2F2 /* Artist.swift in Sources */,
 				3DF60B4D2112C46600BD21CB /* HomeViewController.swift in Sources */,
 				3DB1851121198CF5002B6F4D /* ModelConfigurableCell.swift in Sources */,
 				3DB184FF21197EA1002B6F4D /* ManagedConvertableProtocol.swift in Sources */,
-				3DB1850D21198993002B6F4D /* ArtistAlbumCell.swift in Sources */,
+				3DB1850D21198993002B6F4D /* AlbumItemCell.swift in Sources */,
 				3DFE4AD62112D3CC00B9D2F2 /* NavigationController.swift in Sources */,
 				3DB184F22118A0BC002B6F4D /* ArtistScreenDataModel.swift in Sources */,
 				3DB184F62118BFBD002B6F4D /* GetArtistAlbumsRequest.swift in Sources */,
@@ -552,6 +627,7 @@
 				3DB18513211991A6002B6F4D /* CollectionSectionHeaderView.swift in Sources */,
 				3D161FA9211A2F1600F192E8 /* GetAlbumInfoRequest.swift in Sources */,
 				3DFE4AEC2115CE5900B9D2F2 /* Image.swift in Sources */,
+				3D2F742C213D337B00F92DC8 /* UIView+OriginUtils.swift in Sources */,
 				3DFE4AF7211659C800B9D2F2 /* SearchScreenDataModel.swift in Sources */,
 				3DB1850A211984DA002B6F4D /* GradientView.swift in Sources */,
 				3D161F9B2118093D00F192E8 /* ArtistViewController.swift in Sources */,
@@ -561,13 +637,21 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		3DAADC8F216E2C3D00DE778C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3DF60B462112C46600BD21CB /* Misonic */;
+			targetProxy = 3DAADC8E216E2C3D00DE778C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
-		3DF60B4E2112C46600BD21CB /* Main.storyboard */ = {
+		3DF60B4E2112C46600BD21CB /* Home.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3DF60B4F2112C46600BD21CB /* Base */,
 			);
-			name = Main.storyboard;
+			name = Home.storyboard;
 			sourceTree = "<group>";
 		};
 		3DF60B562112C46700BD21CB /* LaunchScreen.storyboard */ = {
@@ -581,6 +665,49 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3DAADC91216E2C3D00DE778C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2N6B529U6S;
+				INFOPLIST_FILE = MisonicUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = net.utiko.MisonicUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Misonic;
+			};
+			name = Debug;
+		};
+		3DAADC92216E2C3D00DE778C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2N6B529U6S;
+				INFOPLIST_FILE = MisonicUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = net.utiko.MisonicUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Misonic;
+			};
+			name = Release;
+		};
 		3DF60B5A2112C46700BD21CB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -707,9 +834,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.utiko.Misonic;
+				PRODUCT_BUNDLE_IDENTIFIER = net.utiko.dev.Misonic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -726,9 +853,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.utiko.Misonic;
+				PRODUCT_BUNDLE_IDENTIFIER = net.utiko.dev.Misonic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -736,6 +863,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3DAADC90216E2C3D00DE778C /* Build configuration list for PBXNativeTarget "MisonicUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DAADC91216E2C3D00DE778C /* Debug */,
+				3DAADC92216E2C3D00DE778C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3DF60B422112C46600BD21CB /* Build configuration list for PBXProject "Misonic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

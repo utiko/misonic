@@ -1,18 +1,18 @@
 PODS:
   - Alamofire (4.7.3)
-  - AlamofireImage (3.3.1):
-    - Alamofire (~> 4.5)
-  - Realm (3.7.4):
-    - Realm/Headers (= 3.7.4)
-  - Realm/Headers (3.7.4)
-  - RealmSwift (3.7.4):
-    - Realm (= 3.7.4)
-  - Reusable (4.0.2):
-    - Reusable/Storyboard (= 4.0.2)
-    - Reusable/View (= 4.0.2)
-  - Reusable/Storyboard (4.0.2)
-  - Reusable/View (4.0.2)
-  - SwiftLint (0.26.0)
+  - AlamofireImage (3.4.1):
+    - Alamofire (~> 4.7)
+  - Realm (3.10.0):
+    - Realm/Headers (= 3.10.0)
+  - Realm/Headers (3.10.0)
+  - RealmSwift (3.10.0):
+    - Realm (= 3.10.0)
+  - Reusable (4.0.3):
+    - Reusable/Storyboard (= 4.0.3)
+    - Reusable/View (= 4.0.3)
+  - Reusable/Storyboard (4.0.3)
+  - Reusable/View (4.0.3)
+  - SwiftLint (0.27.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -21,14 +21,23 @@ DEPENDENCIES:
   - Reusable
   - SwiftLint
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - AlamofireImage
+    - Realm
+    - RealmSwift
+    - Reusable
+    - SwiftLint
+
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  AlamofireImage: 3b35b586853abaf94ca1250f4e94cff3c21a4c0d
-  Realm: a469bb59e33f9926102ccaea4349822c53b9117e
-  RealmSwift: a45861b21c180f5cf0f122144b9759fa8dde3e9e
-  Reusable: 584a5629747c52e0f6a77841b400dc2643f6fa0f
-  SwiftLint: f6b83e8d95ee1e91e11932d843af4fdcbf3fc764
+  AlamofireImage: 78d67ccbb763d87ba44b21583d2153500a195630
+  Realm: 85ab9e4f779d66f6e9ffeb118dc25b7f130c96ac
+  RealmSwift: 69121c8b86d0ae005fb779efdb10e606732e1c74
+  Reusable: 12b67a60e1f3e8c523cc910795dab733f58fbc7e
+  SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
 
-PODFILE CHECKSUM: 96b1da97af5586843414c4c7ec56c1655fb43b07
+PODFILE CHECKSUM: 51ffe245118405fbb831484a3dfe75e51c47e70c
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

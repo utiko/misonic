@@ -11,13 +11,17 @@ import RealmSwift
 
 class DatabaseProvider {
     
-    static var realm: Realm = {
+    enum DatabaseError: Error {
+        case objectAlreadyExist
+    }
+    
+    static var realm: Realm {
         do {
             return try Realm()
         } catch {
             fatalError("Realm not creted")
         }
-    }()
+    }
     
     private static let realmQueue = DispatchQueue(label: "net.utiko.misonic.RealmQueue")
     private static let mainQueue = DispatchQueue.main
@@ -37,18 +41,79 @@ class DatabaseProvider {
             do {
                 // Skip if exists
                 guard realm.object(ofType: ArtistManaged.self, forPrimaryKey: artist.artistID) == nil else {
-                    throw NSError(domain: "", code: 12, userInfo: nil)
+                    throw DatabaseError.objectAlreadyExist
                 }
                 
                 try realm.write {
                     realm.add(artist.getManaged())
                 }
                 
-                DispatchQueue.main.async { completion(true) }
+                mainQueue.async { completion(true) }
             } catch {
-                DispatchQueue.main.async { completion(false) }
+                mainQueue.async { completion(false) }
+            }
+        }
+    }
+    
+    static func getAlbums(completion:@escaping ([Album]) -> Void) {
+        realmQueue.async {
+            let albumsManaged = self.realm.objects(AlbumManaged.self)
+            let albums = Array(albumsManaged.map { Album(with: $0) })
+            mainQueue.async {
+                completion(albums)
+            }
+        }
+    }
+    
+    static func getAlbum(withID albumID: String, completion:@escaping (Album?) -> Void) {
+        realmQueue.async {
+            var album: Album?
+            if let albumManaged = self.realm.object(ofType: AlbumManaged.self, forPrimaryKey: albumID) {
+                album = Album(with: albumManaged)
+            }
+            mainQueue.async {
+                completion(album)
+            }
+        }
+    }
+    
+    static func addAlbum(album: Album, completion: @escaping (Bool) -> Void) {
+        realmQueue.async {
+            do {
+                // Skip if exists
+                guard realm.object(ofType: AlbumManaged.self, forPrimaryKey: album.albumID) == nil else {
+                    mainQueue.async { completion(true) }
+                    return
+                }
+                
+                try realm.write {
+                    realm.add(album.getManaged())
+                }
+                
+                mainQueue.async { completion(true) }
+            } catch {
+                mainQueue.async { completion(false) }
+            }
+        }
+    }
+    
+    static func removeAlbum(withID albumID: String, completion: @escaping () -> Void) {
+        realmQueue.async {
+            defer {
+                mainQueue.async { completion() }
             }
             
+            do {
+                // Skip if exists
+                guard let album = realm.object(ofType: AlbumManaged.self, forPrimaryKey: albumID) else {
+                    // Object not exists
+                    return
+                }
+                
+                try realm.write {
+                    realm.delete(album)
+                }
+            } catch {}
         }
     }
 }
